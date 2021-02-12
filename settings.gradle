@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Finnish-English Slang Dictionary"
