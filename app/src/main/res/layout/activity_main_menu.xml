@@ -32,7 +32,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    //no function atm
     <Button
         android:id="@+id/searchBtn"
         android:layout_width="wrap_content"
