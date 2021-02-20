@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener onClickListener = v -> {
         if (v.getId() == R.id.startBtn){
             Log.d("button", "start button");
+            startActivity(new Intent(MainActivity.this, MainMenu.class));
         } else if (v.getId() == R.id.statisticsBtn){
             Log.d("button", "statistics button");
             startActivity(new Intent(MainActivity.this, UserStatistics.class));
