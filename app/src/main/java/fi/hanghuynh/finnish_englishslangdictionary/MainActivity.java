@@ -1,7 +1,7 @@
 package fi.hanghuynh.finnish_englishslangdictionary;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("button", "start button");
         } else if (v.getId() == R.id.statisticsBtn){
             Log.d("button", "statistics button");
+            startActivity(new Intent(MainActivity.this, UserStatistics.class));
         }
     };
 
@@ -27,5 +28,26 @@ public class MainActivity extends AppCompatActivity {
 
         btnStart.setOnClickListener(onClickListener);
         btnStats.setOnClickListener(onClickListener);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        Log.d("method", "onStart");
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Log.d("method", "onResume");
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.d("method", "onPause");
+    }
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.d("method", "onDestroy");
     }
 }
