@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Finnish-English Slang Dictionary</string>
-    <string name="start_button">Start</string>
-    <string name="statistics_button">Statistics</string>
-    <string name="search_button">Search</string>
+    <string name="search_button">Search A Word</string>
+    <string name="quiz_button">Take A Quiz</string>
+    <string name="app_greetings">Hi there! What would you want to do? :D</string>
+    <string name="search_activity_button">Search</string>
+    <string name="word_of_the_day_textview">Word of the day</string>
+    <string name="btn_check_progress">Check Your Progress</string>
 </resources>
