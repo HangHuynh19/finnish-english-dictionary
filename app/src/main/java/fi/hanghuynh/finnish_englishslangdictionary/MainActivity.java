@@ -7,7 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
+import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
+
 public class MainActivity extends AppCompatActivity {
+    public static final String TAG = "DICTIONARY";
 
     private View.OnClickListener onClickListener = v -> {
         if (v.getId() == R.id.startBtn){
@@ -29,26 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
         btnStart.setOnClickListener(onClickListener);
         btnStats.setOnClickListener(onClickListener);
+
+        //AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().deleteAll();
+        saveWordToDictionary();
+        List<Word> wordList = AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().getAllWords();
+
     }
 
-    @Override
-    protected void onStart(){
-        super.onStart();
-        Log.d("method", "onStart");
-    }
-    @Override
-    protected void onResume(){
-        super.onResume();
-        Log.d("method", "onResume");
-    }
-    @Override
-    protected void onPause(){
-        super.onPause();
-        Log.d("method", "onPause");
-    }
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        Log.d("method", "onDestroy");
+    private void saveWordToDictionary() {
+        AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
+
+        if (db.wordDAO().getAnyWord().length < 1) {
+            for (int i = 0; i < db.getWordArraySize(); i++) {
+                db.wordDAO().insertWord(db.getWord(i));
+            }
+
+            finish();
+        }
     }
 }
