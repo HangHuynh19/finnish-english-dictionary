@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.List;
+
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
 import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
 
@@ -14,12 +16,15 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "DICTIONARY";
 
     private View.OnClickListener onClickListener = v -> {
-        if (v.getId() == R.id.startBtn){
-            Log.d("button", "start button");
-            startActivity(new Intent(MainActivity.this, MainMenu.class));
-        } else if (v.getId() == R.id.statisticsBtn){
-            Log.d("button", "statistics button");
-            startActivity(new Intent(MainActivity.this, UserStatistics.class));
+        if (v.getId() == R.id.searchBtn){
+            Log.d("button", "search button");
+            startActivity(new Intent(MainActivity.this, SearchActivity.class));
+        } else if (v.getId() == R.id.quizBtn){
+            Log.d("button", "quiz button");
+            startActivity(new Intent(MainActivity.this, TakeAQuizActivity.class));
+        } else if (v.getId() == R.id.progressBtn){
+            Log.d("button", "progress button");
+            startActivity(new Intent(MainActivity.this, ProgressActivity.class));
         }
     };
 
@@ -28,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnStart = findViewById(R.id.startBtn);
-        Button btnStats = findViewById(R.id.statisticsBtn);
+        Button btnSearch = findViewById(R.id.searchBtn);
+        Button btnTakeQuiz = findViewById(R.id.quizBtn);
+        Button btnShowProgress = findViewById(R.id.progressBtn);
 
-        btnStart.setOnClickListener(onClickListener);
-        btnStats.setOnClickListener(onClickListener);
+        btnSearch.setOnClickListener(onClickListener);
+        btnTakeQuiz.setOnClickListener(onClickListener);
+        btnShowProgress.setOnClickListener(onClickListener);
 
         //AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().deleteAll();
         saveWordToDictionary();
