@@ -19,4 +19,7 @@ public interface WordDAO {
 
     @Insert
     void insertWord(Word... words);
+
+    @Query("SELECT * FROM Word WHERE finnish_word LIKE :search")
+    public List<Word> findWord(String search);
 }
