@@ -2,6 +2,7 @@ package fi.hanghuynh.finnish_englishslangdictionary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,10 @@ import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "DICTIONARY";
+    protected static final String SHARED_PREF_FILE = "my_pref";
+    protected static final String USER_PROGRESS = "user_progress";
+    private SharedPreferences prefGet;
+    private SharedPreferences prefPut;
 
     private View.OnClickListener onClickListener = v -> {
         if (v.getId() == R.id.searchBtn){

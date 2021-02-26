@@ -6,4 +6,10 @@
     <string name="word_of_the_day_textview">Word of the day</string>
     <string name="btn_check_progress">Check Your Progress</string>
     <string name="translation_txt">translation</string>
+    <string name="next_btn">Next</string>
+    <string name="finished_txt">Time\'s up!</string>
+    <string name="user_score">Your score is</string>
+    <string name="score_announcement">0</string>
+    <string name="total_points">Your total points until now is</string>
+    <string name="total_point_announcement">0</string>
 </resources>
