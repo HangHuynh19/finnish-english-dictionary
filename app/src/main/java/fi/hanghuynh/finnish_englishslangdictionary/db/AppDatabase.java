@@ -138,8 +138,7 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    public Word getWord(int index) {
-        return words.get(index);
+    public Word getWord(int index) { return words.get(index);
     }
 
     public int getWordArraySize() {

@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
@@ -17,6 +21,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 private String searchedWord;
 private  AppDatabase db;
 private EditText searchBar;
+private int[] wordId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +44,23 @@ private EditText searchBar;
             startActivity(new Intent(SearchActivity.this, MainActivity.class));
         } else if (v.getId() == R.id.searchBtn) {
             searchedWord = searchBar.getText().toString();
-            Log.d("test", "button pressed");
             Log.d("test", searchedWord);
             search();
+
+            Intent searchResults = new Intent(SearchActivity.this, SearchResultsActivity.class);
+            searchResults.putExtra("wordIds", wordId);
+            startActivity(searchResults);
         }
     }
 
     public void search() {
-        for (int i = 0; i < db.getWordArraySize(); i++) {
+        int dbSize = db.getWordArraySize(), j = 0;
+        wordId = new int[dbSize];
+        for (int i = 0; i < dbSize; i++) {
             if (db.getWord(i).finnishWord.contains(searchedWord)){
                 Log.d("test", db.getWord(i).finnishWord);
+                wordId[j] = i;
+                j++;
             }
         }
     }
