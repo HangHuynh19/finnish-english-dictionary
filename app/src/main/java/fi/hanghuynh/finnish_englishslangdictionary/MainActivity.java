@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         //AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().deleteAll();
         saveWordToDictionary();
-        List<Word> wordList = AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().getAllWords();
-        Log.d("test", String.valueOf(wordList.get(1)));
     }
 
     private void saveWordToDictionary() {

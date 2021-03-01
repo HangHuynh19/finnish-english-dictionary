@@ -29,6 +29,7 @@ public class TakeAQuizActivity extends AppCompatActivity {
     private RadioGroup optionGroup;
     private int userScore = 0;
     private TextView timer;
+    private CountDownTimer countDownTimer;
     private long userProgress;
 
     @Override
@@ -49,11 +50,14 @@ public class TakeAQuizActivity extends AppCompatActivity {
         onClickListener click = new onClickListener();
         btnNext.setOnClickListener(click);
 
+        List<String> wordList = AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().loadBookmarkedWords();
+        Log.d("bookmarked", Integer.toString(wordList.size()));
+
         timer = findViewById(R.id.timer);
 
         long duration = TimeUnit.MINUTES.toMillis(1);
 
-        new CountDownTimer(duration, 1000) {
+        countDownTimer = new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisecondsTillFinish) {
                 String sDuration = String.format(Locale.ENGLISH, "%02d:%02d"
@@ -80,8 +84,38 @@ public class TakeAQuizActivity extends AppCompatActivity {
                 TextView userScoreDisplay = findViewById(R.id.scoreAnnouncement);
 
                 userScoreDisplay.setText(Integer.toString(userScore));
+
+                cancel();
+                finish();
             }
         }.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        countDownTimer.cancel();
+        Log.d("count down", "stop");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        countDownTimer.cancel();
+        Log.d("count down", "stop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        countDownTimer.cancel();
+        Log.d("count down", "stop");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        countDownTimer.start();
     }
 
     private void displayQuestionsAndOptions(ArrayList<String> quiz) {
