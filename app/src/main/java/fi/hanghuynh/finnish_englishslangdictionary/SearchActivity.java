@@ -10,10 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
