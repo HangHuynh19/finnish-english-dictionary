@@ -42,17 +42,4 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/searchBar"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/wordOfTheDayTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/word_of_the_day_textview"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
