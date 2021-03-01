@@ -4,30 +4,37 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Dao
 public interface WordDAO {
+    @Insert
+    public void insertWord(Word... words);
+
+    @Update
+    public void updateUsers(Word... word);
+
     @Query("SELECT * FROM Word")
-    List<Word> getAllWords();
+    public List<Word> getAllWords();
 
     @Query("DELETE FROM Word")
-    void deleteAll();
+    public void deleteAll();
 
     @Query("SELECT * from Word LIMIT 1")
-    Word[] getAnyWord();
-
-    @Insert
-    void insertWord(Word... words);
+    public Word[] getAnyWord();
 
     @Query("SELECT * FROM Word WHERE finnish_word LIKE :search")
-    List<Word> findWord(String search);
+    public List<Word> findWord(String search);
 
     @Query("SELECT finnish_word FROM Word")
-    List<String> loadFinnishWordArray();
+    public List<String> loadFinnishWordArray();
 
     @Query("SELECT english_translation FROM Word")
-    List<String> loadEnglishTranslationArray();
+    public List<String> loadEnglishTranslationArray();
+
+    @Query("SELECT finnish_word FROM Word WHERE bookmarked = 0")
+    public List<String> loadBookmarkedWords();
 }

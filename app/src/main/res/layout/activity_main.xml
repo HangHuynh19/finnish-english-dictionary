@@ -4,50 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    android:layout_margin="10sp"
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/appGreetings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/wordOfTheDay"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="5sp"
+        android:layout_marginTop="48dp"
         android:text="@string/word_of_the_day_textview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBtn"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.036" />
 
     <Button
         android:id="@+id/searchBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="5sp"
         android:text="@string/search_button"
         app:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <Button
         android:id="@+id/quizBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="5sp"
+        android:layout_marginTop="48dp"
         android:text="@string/quiz_button"
         app:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchBtn"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/progressBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="5sp"
         android:layout_marginTop="48dp"
         android:text="@string/btn_check_progress"
         app:backgroundTint="@color/blue"
