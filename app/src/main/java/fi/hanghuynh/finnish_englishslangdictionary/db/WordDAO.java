@@ -15,7 +15,7 @@ public interface WordDAO {
     public void insertWord(Word... words);
 
     @Update
-    public void updateUsers(Word... word);
+    public void updateWords(Word word);
 
     @Query("SELECT * FROM Word")
     public List<Word> getAllWords();
@@ -26,8 +26,8 @@ public interface WordDAO {
     @Query("SELECT * from Word LIMIT 1")
     public Word[] getAnyWord();
 
-    @Query("SELECT * FROM Word WHERE finnish_word LIKE :search")
-    public List<Word> findWord(String search);
+    @Query("SELECT * FROM Word WHERE finnish_word IN (:search)")
+    public Word findWord(String search);
 
     @Query("SELECT finnish_word FROM Word")
     public List<String> loadFinnishWordArray();
@@ -35,6 +35,6 @@ public interface WordDAO {
     @Query("SELECT english_translation FROM Word")
     public List<String> loadEnglishTranslationArray();
 
-    @Query("SELECT finnish_word FROM Word WHERE bookmarked = 0")
-    public List<String> loadBookmarkedWords();
+    @Query("SELECT * FROM Word WHERE bookmarked = 1")
+    public List<Word> loadBookmarkedWords();
 }

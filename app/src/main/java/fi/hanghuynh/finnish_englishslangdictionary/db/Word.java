@@ -24,4 +24,22 @@ public class Word {
         this.bookmarked = false;
     }
 
+    public String getFinnishWord() {
+        return this.finnishWord;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public boolean bookmark() {
+        this.bookmarked = true;
+        return bookmarked;
+    }
+
+    public boolean undoBookmark() {
+        this.bookmarked = false;
+        return bookmarked;
+    }
+
 }

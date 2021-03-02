@@ -4,7 +4,7 @@
     <string name="quiz_button">Take A Quiz</string>
     <string name="search_activity_button">Search</string>
     <string name="word_of_the_day_textview">Word of the day</string>
-    <string name="btn_check_progress">Check Your Progress</string>
+    <string name="btn_check_progress">View Progress and Bookmarks</string>
     <string name="translation_txt">translation</string>
     <string name="next_btn">Next</string>
     <string name="finished_txt">Time\'s up!</string>
@@ -12,4 +12,5 @@
     <string name="score_announcement">0</string>
     <string name="total_points">Your total points until now is</string>
     <string name="total_point_announcement">0</string>
+    <string name="search_result_activity_layout2_txt">No word found</string>
 </resources>

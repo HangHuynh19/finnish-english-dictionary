@@ -20,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
+import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
 
 public class TakeAQuizActivity extends AppCompatActivity {
     private List<String> finnishWord;
@@ -49,9 +50,6 @@ public class TakeAQuizActivity extends AppCompatActivity {
         Button btnNext = findViewById(R.id.nextBtn);
         onClickListener click = new onClickListener();
         btnNext.setOnClickListener(click);
-
-        List<String> wordList = AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().loadBookmarkedWords();
-        Log.d("bookmarked", Integer.toString(wordList.size()));
 
         timer = findViewById(R.id.timer);
 
