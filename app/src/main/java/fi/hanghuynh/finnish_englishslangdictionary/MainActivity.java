@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (v.getId() == R.id.progressBtn){
             Log.d("button", "progress button");
             startActivity(new Intent(MainActivity.this, ProgressActivity.class));
+        } else if (v.getId() == R.id.matchBtn){
+            Log.d("button", "matching game button");
+            startActivity(new Intent(MainActivity.this, MatchingActivity.class));
         }
     };
 
@@ -41,10 +44,12 @@ public class MainActivity extends AppCompatActivity {
         Button btnSearch = findViewById(R.id.searchBtn);
         Button btnTakeQuiz = findViewById(R.id.quizBtn);
         Button btnShowProgress = findViewById(R.id.progressBtn);
+        Button btnMatch = findViewById(R.id.matchBtn);
 
         btnSearch.setOnClickListener(onClickListener);
         btnTakeQuiz.setOnClickListener(onClickListener);
         btnShowProgress.setOnClickListener(onClickListener);
+        btnMatch.setOnClickListener(onClickListener);
 
         //AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().deleteAll();
         saveWordToDictionary();
