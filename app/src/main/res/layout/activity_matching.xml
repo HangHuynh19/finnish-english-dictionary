@@ -7,159 +7,340 @@
     tools:context=".MatchingActivity">
 
     <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
+        android:id="@+id/finnishCardMR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/englishCardBR"
+        app:layout_constraintEnd_toStartOf="@+id/englishCardMR"
+        app:layout_constraintStart_toEndOf="@+id/englishCardML"
+        app:layout_constraintTop_toBottomOf="@+id/englishCardTR"
         app:srcCompat="@drawable/match_card_finnish" />
 
     <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
+        android:id="@+id/finnishCardBR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:layout_marginBottom="190dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.181"
+        app:layout_constraintStart_toEndOf="@+id/englishCardBR"
+        app:layout_constraintTop_toBottomOf="@+id/englishCardMR"
         app:srcCompat="@drawable/match_card_finnish" />
 
     <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
+        android:id="@+id/englishCardBR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:layout_marginBottom="190dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView17"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:layout_constraintVertical_bias="0.181"
+        app:layout_constraintEnd_toStartOf="@+id/finnishCardBR"
+        app:layout_constraintStart_toEndOf="@+id/finnishCardBL"
+        app:layout_constraintTop_toBottomOf="@+id/finnishCardMR"
         app:srcCompat="@drawable/match_card_english" />
 
     <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
+        android:id="@+id/englishCardBL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:layout_marginBottom="190dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView14"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/finnishCardBL"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.181"
+        app:layout_constraintTop_toBottomOf="@+id/finnishCardML"
         app:srcCompat="@drawable/match_card_english" />
 
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
+        android:id="@+id/englishCardMR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/finnishCardBR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473"
+        app:layout_constraintStart_toEndOf="@+id/finnishCardMR"
+        app:layout_constraintTop_toBottomOf="@+id/finnishCardTR"
         app:srcCompat="@drawable/match_card_english" />
 
     <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
+        android:id="@+id/finnishCardBL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="190dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/englishCardBR"
+        app:layout_constraintStart_toEndOf="@+id/englishCardBL"
+        app:layout_constraintTop_toBottomOf="@+id/englishCardML"
+        app:srcCompat="@drawable/match_card_finnish" />
+
+    <ImageView
+        android:id="@+id/finnishCardTR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/englishCardMR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/englishCardTR"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/match_card_finnish" />
+
+    <ImageView
+        android:id="@+id/finnishCardML"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/englishCardBL"
+        app:layout_constraintEnd_toStartOf="@+id/englishCardML"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/englishCardTL"
+        app:srcCompat="@drawable/match_card_finnish" />
+
+    <ImageView
+        android:id="@+id/englishCardTL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/finnishCardML"
+        app:layout_constraintEnd_toStartOf="@+id/finnishCardTL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/match_card_english" />
+
+    <ImageView
+        android:id="@+id/englishCardML"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/finnishCardBL"
+        app:layout_constraintEnd_toStartOf="@+id/finnishCardMR"
+        app:layout_constraintStart_toEndOf="@+id/finnishCardML"
+        app:layout_constraintTop_toBottomOf="@+id/finnishCardTL"
+        app:srcCompat="@drawable/match_card_english" />
+
+    <ImageView
+        android:id="@+id/finnishCardTL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="149dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.181"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/englishCardML"
+        app:layout_constraintEnd_toStartOf="@+id/englishCardTR"
+        app:layout_constraintStart_toEndOf="@+id/englishCardTL"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/match_card_finnish" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:id="@+id/englishCardTR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/finnishCardMR"
+        app:layout_constraintEnd_toStartOf="@+id/finnishCardTR"
+        app:layout_constraintStart_toEndOf="@+id/finnishCardTL"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/match_card_english" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        tools:layout_editor_absoluteX="411dp" />
+
+    <ImageView
+        android:id="@+id/Heart1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748"
-        app:srcCompat="@drawable/match_card_finnish" />
+        app:srcCompat="@drawable/full_heart_icon" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginEnd="24dp"
+        android:id="@+id/Heart2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginRight="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView9"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473"
-        app:srcCompat="@drawable/match_card_finnish" />
+        app:srcCompat="@drawable/full_heart_icon" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/Heart3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748"
-        app:srcCompat="@drawable/match_card_english" />
+        app:srcCompat="@drawable/full_heart_icon" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473"
-        app:srcCompat="@drawable/match_card_english" />
+    <TextView
+        android:id="@+id/englishTextTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/englishCardTL"
+        app:layout_constraintEnd_toEndOf="@+id/englishCardTL"
+        app:layout_constraintStart_toStartOf="@+id/englishCardTL"
+        app:layout_constraintTop_toTopOf="@+id/englishCardTL"
+        android:visibility="invisible"/>
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView9"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748"
-        app:srcCompat="@drawable/match_card_finnish" />
+    <TextView
+        android:id="@+id/finnishTextTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/finnishCardTL"
+        app:layout_constraintEnd_toEndOf="@+id/finnishCardTL"
+        app:layout_constraintStart_toStartOf="@+id/finnishCardTL"
+        app:layout_constraintTop_toTopOf="@+id/finnishCardTL"
+        android:visibility="invisible"/>
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView12"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748"
-        app:srcCompat="@drawable/match_card_english" />
+    <TextView
+        android:id="@+id/englishTextTR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/englishCardTR"
+        app:layout_constraintEnd_toEndOf="@+id/englishCardTR"
+        app:layout_constraintStart_toStartOf="@+id/englishCardTR"
+        app:layout_constraintTop_toTopOf="@+id/englishCardTR"
+        android:visibility="invisible"/>
 
+    <TextView
+        android:id="@+id/finnishTextTR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/finnishCardTR"
+        app:layout_constraintEnd_toEndOf="@+id/finnishCardTR"
+        app:layout_constraintStart_toStartOf="@+id/finnishCardTR"
+        app:layout_constraintTop_toTopOf="@+id/finnishCardTR"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/finnishTextML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/finnishCardML"
+        app:layout_constraintEnd_toEndOf="@+id/finnishCardML"
+        app:layout_constraintStart_toStartOf="@+id/finnishCardML"
+        app:layout_constraintTop_toTopOf="@+id/finnishCardML"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/englishTextML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/englishCardML"
+        app:layout_constraintEnd_toEndOf="@+id/englishCardML"
+        app:layout_constraintStart_toStartOf="@+id/englishCardML"
+        app:layout_constraintTop_toTopOf="@+id/englishCardML"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/finnishTextMR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/finnishCardMR"
+        app:layout_constraintEnd_toEndOf="@+id/finnishCardMR"
+        app:layout_constraintStart_toStartOf="@+id/finnishCardMR"
+        app:layout_constraintTop_toTopOf="@+id/finnishCardMR"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/englishTextMR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/englishCardMR"
+        app:layout_constraintEnd_toEndOf="@+id/englishCardMR"
+        app:layout_constraintStart_toStartOf="@+id/englishCardMR"
+        app:layout_constraintTop_toTopOf="@+id/englishCardMR"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/englishTextBL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/englishCardBL"
+        app:layout_constraintEnd_toEndOf="@+id/englishCardBL"
+        app:layout_constraintStart_toStartOf="@+id/englishCardBL"
+        app:layout_constraintTop_toTopOf="@+id/englishCardBL"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/finnishTextBL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/finnishCardBL"
+        app:layout_constraintEnd_toEndOf="@+id/finnishCardBL"
+        app:layout_constraintStart_toStartOf="@+id/finnishCardBL"
+        app:layout_constraintTop_toTopOf="@+id/finnishCardBL"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/englishTextBR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/englishCardBR"
+        app:layout_constraintEnd_toEndOf="@+id/englishCardBR"
+        app:layout_constraintStart_toStartOf="@+id/englishCardBR"
+        app:layout_constraintTop_toTopOf="@+id/englishCardBR"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/finnishTextBR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@+id/finnishCardBR"
+        app:layout_constraintEnd_toEndOf="@+id/finnishCardBR"
+        app:layout_constraintStart_toStartOf="@+id/finnishCardBR"
+        app:layout_constraintTop_toTopOf="@+id/finnishCardBR"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

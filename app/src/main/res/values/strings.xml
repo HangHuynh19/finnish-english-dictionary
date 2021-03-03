@@ -12,4 +12,6 @@
     <string name="score_announcement">0</string>
     <string name="total_points">Your total points until now is</string>
     <string name="total_point_announcement">0</string>
+    <string name="match_button">Matching Game</string>
+    <string name="empty"> </string>
 </resources>

@@ -194,4 +194,5 @@ public abstract class AppDatabase extends RoomDatabase {
         return words.size();
     }
 
+    public int getId(int index) {return words.get(index).id; }
 }
