@@ -40,7 +40,6 @@ private int[] wordId;
             startActivity(new Intent(SearchActivity.this, MainActivity.class));
         } else if (v.getId() == R.id.searchBtn) {
             searchedWord = searchBar.getText().toString();
-            Log.d("test", searchedWord);
             search();
 
             Intent searchResults = new Intent(SearchActivity.this, SearchResultsActivity.class);
