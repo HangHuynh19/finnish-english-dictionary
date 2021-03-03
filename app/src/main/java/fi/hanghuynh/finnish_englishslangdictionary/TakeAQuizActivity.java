@@ -57,7 +57,9 @@ public class TakeAQuizActivity extends AppCompatActivity {
 
         timer = findViewById(R.id.timer);
 
-        long duration = TimeUnit.MINUTES.toMillis(1);
+        //long duration = TimeUnit.MINUTES.toMillis(1);
+
+        long duration = TimeUnit.MILLISECONDS.toMillis(5000);
 
         countDownTimer = new CountDownTimer(duration, 1000) {
             @Override
@@ -81,11 +83,13 @@ public class TakeAQuizActivity extends AppCompatActivity {
                 editor.putLong(USER_PROGRESS, userProgress);
                 editor.apply();
 
-                setContentView(R.layout.activity_take_quiz2);
+                /**setContentView(R.layout.activity_take_quiz2);
 
                 TextView userScoreDisplay = findViewById(R.id.scoreAnnouncement);
 
-                userScoreDisplay.setText(Integer.toString(userScore));
+                userScoreDisplay.setText(Integer.toString(userScore));**/
+
+                startActivity(new Intent(TakeAQuizActivity.this, AnnounceQuizResults.class));
 
                 cancel();
                 finish();
@@ -103,7 +107,10 @@ public class TakeAQuizActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        countDownTimer.cancel();
+        if(countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+
         Log.d("count down", "stop");
     }
 
