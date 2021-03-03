@@ -18,6 +18,9 @@ import java.util.Random;
 
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class MatchingActivity extends AppCompatActivity {
 
     private  AppDatabase db;
@@ -28,7 +31,7 @@ public class MatchingActivity extends AppCompatActivity {
     private ImageView engTL, engTR, engML, engMR, engBL, engBR;
     private TextView fTextTL, fTextTR, fTextML, fTextMR, fTextBL, fTextBR;
     private TextView eTextTL, eTextTR, eTextML, eTextMR, eTextBL, eTextBR;
-
+    private Boolean noCardsClick, firstCardEnglish, firstCardFinnish;
     Random random = new Random();
 
     @Override
@@ -37,6 +40,9 @@ public class MatchingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_matching);
 
         db = AppDatabase.getDbInstance(this.getApplicationContext());
+        noCardsClick = TRUE;
+        firstCardFinnish = FALSE;
+        firstCardEnglish = FALSE;
 
         generateRandom();
         Log.d("test", "numbers: " + randNumbers);
@@ -73,28 +79,83 @@ public class MatchingActivity extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v) {
-        int secondCardClicked = 0, firstCardEnglish = 0, firstCardFinnish = 0;
+
+        int secondCardClicked = 0;
         int finnWordsIndex = 0, engWordsIndex = 0;
 
         switch (v.getId()) {
             case R.id.finnishCardTL:            //Corresponds to finnWords(0)
-                finnCards.get(0).setAlpha((float) 0.0);
+                if (noCardsClick == TRUE) {                                         //No cards clicked
+                    finnCards.get(0).setAlpha((float) 0.0);
+                    finnWordsIndex = 0;
+                    noCardsClick = FALSE;
+                } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex == engWordsIndex) {        //The first card clicked was English
+                    fTextTL.setText("Correct");
+                    fTextTL.setVisibility(View.VISIBLE);
+                } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex != engWordsIndex) {                                  //The first card clicked was Finnish
+
+                }
                 break;
             case R.id.finnishCardTR:            //Corresponds to finnWord(1)
-                finnCards.get(1).setAlpha((float) 0.0);
+                if (noCardsClick == TRUE) {                                         //No cards clicked
+                    finnCards.get(1).setAlpha((float) 0.0);
+                    finnWordsIndex = 1;
+                    noCardsClick = FALSE;
+                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
+
+                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
+                    finnCards.get(0).setAlpha((float) 1.0);
+                }
                 break;
             case R.id.finnishCardML:            //Corresponds to finnWord(2)
-                finnCards.get(2).setAlpha((float) 0.0);
+                if (noCardsClick == TRUE) {                                         //No cards clicked
+                    finnCards.get(2).setAlpha((float) 0.0);
+                    finnWordsIndex = 2;
+                    noCardsClick = FALSE;
+                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
+
+                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
+
+                }
                 break;
             case R.id.finnishCardMR:            //Corresponds to finnWord(3)
-                finnCards.get(3).setAlpha((float) 0.0);
+                if (noCardsClick == TRUE) {                                         //No cards clicked
+                    finnCards.get(3).setAlpha((float) 0.0);
+                    finnWordsIndex = 3;
+                    noCardsClick = FALSE;
+                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
+
+                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
+
+                }
                 break;
             case R.id.finnishCardBL:            //Corresponds to finnWord(4)
-                finnCards.get(4).setAlpha((float) 0.0);
+                if (noCardsClick == TRUE) {                                         //No cards clicked
+                    finnCards.get(4).setAlpha((float) 0.0);
+                    finnWordsIndex = 4;
+                    noCardsClick = FALSE;
+                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
+
+                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
+
+                }
                 break;
             case R.id.finnishCardBR:            //Corresponds to finnWord(5)
-                finnCards.get(5).setAlpha((float) 0.0);
+                if (noCardsClick == TRUE) {                                         //No cards clicked
+                    finnCards.get(5).setAlpha((float) 0.0);
+                    finnWordsIndex = 5;
+                    noCardsClick = FALSE;
+                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
+
+                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
+
+                }
                 break;
+            case R.id.englishCardTL:
+                engCards.get(0).setAlpha((float) 0.0);
+                noCardsClick = FALSE;
+                firstCardEnglish = TRUE;
+                engWordsIndex = 0;
         }
     }
 
