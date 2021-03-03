@@ -23,6 +23,10 @@ import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
 import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
 
 public class TakeAQuizActivity extends AppCompatActivity {
+
+    protected static final String USER_PROGRESS = "user_progress";
+    private SharedPreferences prefGet;
+    private SharedPreferences prefPut;
     private List<String> finnishWord;
     private List<String> englishTranslation;
     private TakeAQuizUI quiz;
@@ -68,13 +72,13 @@ public class TakeAQuizActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 userScore = checkUserAnswer(quizInfo);
-                SharedPreferences prefGet = getSharedPreferences("my_pref", MODE_PRIVATE);
-                userProgress = prefGet.getLong("user_progress", 0) + userScore;
+                prefGet = getSharedPreferences("my_pref", MODE_PRIVATE);
+                userProgress = prefGet.getLong(USER_PROGRESS, 0) + userScore;
                 Log.d("user progress", Long.toString(userProgress));
 
-                SharedPreferences prefPut = getSharedPreferences("my_pref", MODE_PRIVATE);
+                prefPut = getSharedPreferences("my_pref", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefPut.edit();
-                editor.putLong("user_progress", userProgress);
+                editor.putLong(USER_PROGRESS, userProgress);
                 editor.apply();
 
                 setContentView(R.layout.activity_take_quiz2);
