@@ -214,8 +214,9 @@
 
     <TextView
         android:id="@+id/englishTextTL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/englishCardTL"
         app:layout_constraintEnd_toEndOf="@+id/englishCardTL"
@@ -225,8 +226,9 @@
 
     <TextView
         android:id="@+id/finnishTextTL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/finnishCardTL"
         app:layout_constraintEnd_toEndOf="@+id/finnishCardTL"
@@ -236,8 +238,9 @@
 
     <TextView
         android:id="@+id/englishTextTR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/englishCardTR"
         app:layout_constraintEnd_toEndOf="@+id/englishCardTR"
@@ -247,8 +250,9 @@
 
     <TextView
         android:id="@+id/finnishTextTR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/finnishCardTR"
         app:layout_constraintEnd_toEndOf="@+id/finnishCardTR"
@@ -258,8 +262,9 @@
 
     <TextView
         android:id="@+id/finnishTextML"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/finnishCardML"
         app:layout_constraintEnd_toEndOf="@+id/finnishCardML"
@@ -269,8 +274,9 @@
 
     <TextView
         android:id="@+id/englishTextML"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/englishCardML"
         app:layout_constraintEnd_toEndOf="@+id/englishCardML"
@@ -280,8 +286,9 @@
 
     <TextView
         android:id="@+id/finnishTextMR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/finnishCardMR"
         app:layout_constraintEnd_toEndOf="@+id/finnishCardMR"
@@ -291,8 +298,9 @@
 
     <TextView
         android:id="@+id/englishTextMR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/englishCardMR"
         app:layout_constraintEnd_toEndOf="@+id/englishCardMR"
@@ -302,8 +310,9 @@
 
     <TextView
         android:id="@+id/englishTextBL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/englishCardBL"
         app:layout_constraintEnd_toEndOf="@+id/englishCardBL"
@@ -313,8 +322,9 @@
 
     <TextView
         android:id="@+id/finnishTextBL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/finnishCardBL"
         app:layout_constraintEnd_toEndOf="@+id/finnishCardBL"
@@ -324,8 +334,9 @@
 
     <TextView
         android:id="@+id/englishTextBR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/englishCardBR"
         app:layout_constraintEnd_toEndOf="@+id/englishCardBR"
@@ -335,8 +346,9 @@
 
     <TextView
         android:id="@+id/finnishTextBR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:text="@string/empty"
         app:layout_constraintBottom_toBottomOf="@+id/finnishCardBR"
         app:layout_constraintEnd_toEndOf="@+id/finnishCardBR"

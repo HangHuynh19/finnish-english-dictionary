@@ -27,12 +27,15 @@ public class MatchingActivity extends AppCompatActivity {
     private ArrayList<Integer> randNumbers;
     private ArrayList<String> finnWords, engWords, engWordsShuffled;
     private ArrayList<ImageView> finnCards, engCards;
+    private ArrayList<TextView> finnText, engText;
     private ImageView finnTL, finnTR, finnML, finnMR, finnBL, finnBR;
     private ImageView engTL, engTR, engML, engMR, engBL, engBR;
     private TextView fTextTL, fTextTR, fTextML, fTextMR, fTextBL, fTextBR;
     private TextView eTextTL, eTextTR, eTextML, eTextMR, eTextBL, eTextBR;
     private Boolean noCardsClick, firstCardEnglish, firstCardFinnish;
+    private int finnWordsIndex, engWordsIndex, totalPairs, engWordsShuffledIndex;
     Random random = new Random();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +51,14 @@ public class MatchingActivity extends AppCompatActivity {
         Log.d("test", "numbers: " + randNumbers);
         Log.d("test", "finnWords: " + finnWords);
         Log.d("test", "engWords: " + engWords);
-        loadGameView();
+
 
         //Creating a duplicate of the english words array with a different order
-        engWordsShuffled = engWords;
+        engWordsShuffled = new ArrayList<>(engWords);
         Collections.shuffle(engWordsShuffled);
-        Log.d("test", "engWords: " + engWords);
-        setCardText();
+        loadGameView();
+
+        Log.d("test", "engWordsShuffled: " + engWordsShuffled);
     }
 
     //Generating the index of 6 random words from the database
@@ -79,102 +83,185 @@ public class MatchingActivity extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.finnishCardTL:            //Corresponds to finnWords(0)
+                    if (noCardsClick == TRUE || firstCardEnglish == TRUE) {
+                        finnWordsIndex = 0;
+                    }
+                    if (noCardsClick == TRUE && finnWordsIndex == 0) {                      //No cards clicked
+                        firstFinnishCard();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex == engWordsIndex) {      //The first card clicked was English
+                        correctGuessFinnish();                                                                              //and the cards match
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex != engWordsIndex) {      //The first card clicked was English
+                        incorrectGuessFinnish();                                                                            //and does not match
+                    }
+                    break;
+                case R.id.finnishCardTR:            //Corresponds to finnWord(1)
+                    if (noCardsClick == TRUE || firstCardEnglish == TRUE) {              //Ensures value of finnWordsIndex does not
+                        finnWordsIndex = 1;                                             //change until an english card is pressed
+                    }
+                    if (noCardsClick == TRUE) {                  //No cards clicked
+                        firstFinnishCard();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex == engWordsIndex) {      //The first card clicked was English
+                        correctGuessFinnish();
 
-        int secondCardClicked = 0;
-        int finnWordsIndex = 0, engWordsIndex = 0;
-
-        switch (v.getId()) {
-            case R.id.finnishCardTL:            //Corresponds to finnWords(0)
-                if (noCardsClick == TRUE) {                                         //No cards clicked
-                    finnCards.get(0).setAlpha((float) 0.0);
-                    finnWordsIndex = 0;
-                    noCardsClick = FALSE;
-                } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex == engWordsIndex) {        //The first card clicked was English
-                    fTextTL.setText("Correct");
-                    fTextTL.setVisibility(View.VISIBLE);
-                } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex != engWordsIndex) {                                  //The first card clicked was Finnish
-
-                }
-                break;
-            case R.id.finnishCardTR:            //Corresponds to finnWord(1)
-                if (noCardsClick == TRUE) {                                         //No cards clicked
-                    finnCards.get(1).setAlpha((float) 0.0);
-                    finnWordsIndex = 1;
-                    noCardsClick = FALSE;
-                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
-
-                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
-                    finnCards.get(0).setAlpha((float) 1.0);
-                }
-                break;
-            case R.id.finnishCardML:            //Corresponds to finnWord(2)
-                if (noCardsClick == TRUE) {                                         //No cards clicked
-                    finnCards.get(2).setAlpha((float) 0.0);
-                    finnWordsIndex = 2;
-                    noCardsClick = FALSE;
-                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
-
-                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
-
-                }
-                break;
-            case R.id.finnishCardMR:            //Corresponds to finnWord(3)
-                if (noCardsClick == TRUE) {                                         //No cards clicked
-                    finnCards.get(3).setAlpha((float) 0.0);
-                    finnWordsIndex = 3;
-                    noCardsClick = FALSE;
-                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
-
-                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
-
-                }
-                break;
-            case R.id.finnishCardBL:            //Corresponds to finnWord(4)
-                if (noCardsClick == TRUE) {                                         //No cards clicked
-                    finnCards.get(4).setAlpha((float) 0.0);
-                    finnWordsIndex = 4;
-                    noCardsClick = FALSE;
-                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
-
-                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
-
-                }
-                break;
-            case R.id.finnishCardBR:            //Corresponds to finnWord(5)
-                if (noCardsClick == TRUE) {                                         //No cards clicked
-                    finnCards.get(5).setAlpha((float) 0.0);
-                    finnWordsIndex = 5;
-                    noCardsClick = FALSE;
-                } else if (noCardsClick != TRUE && secondCardClicked == 0) {        //The first card clicked was English
-
-                } else if (noCardsClick != TRUE) {                                  //The first card clicked was Finnish
-
-                }
-                break;
-            case R.id.englishCardTL:
-                engCards.get(0).setAlpha((float) 0.0);
-                noCardsClick = FALSE;
-                firstCardEnglish = TRUE;
-                engWordsIndex = 0;
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex != engWordsIndex) {                                  //The first card clicked was Finnish
+                        incorrectGuessFinnish();
+                    }
+                    break;
+                case R.id.finnishCardML:            //Corresponds to finnWord(2)
+                    if (noCardsClick == TRUE || firstCardEnglish == TRUE) {
+                        finnWordsIndex = 2;
+                    }
+                    if (noCardsClick == TRUE && finnWordsIndex == 2) {                  //No cards clicked
+                        firstFinnishCard();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex == engWordsIndex) {        //The first card clicked was English
+                        correctGuessFinnish();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex != engWordsIndex) {                                  //The first card clicked was Finnish
+                        incorrectGuessFinnish();
+                    }
+                    break;
+                case R.id.finnishCardMR:            //Corresponds to finnWord(3)
+                    if (noCardsClick == TRUE || firstCardEnglish == TRUE) {
+                        finnWordsIndex = 3;
+                    }
+                    if (noCardsClick == TRUE && finnWordsIndex == 3) {                  //No cards clicked
+                        firstFinnishCard();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex == engWordsIndex) {        //The first card clicked was English
+                        correctGuessFinnish();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex != engWordsIndex) {                                  //The first card clicked was Finnish
+                        incorrectGuessFinnish();
+                    }
+                    break;
+                case R.id.finnishCardBL:            //Corresponds to finnWord(4)
+                    if (noCardsClick == TRUE || firstCardEnglish == TRUE) {
+                        finnWordsIndex = 4;
+                    }
+                    if (noCardsClick == TRUE && finnWordsIndex == 4) {                                         //No cards clicked
+                        firstFinnishCard();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex == engWordsIndex) {        //The first card clicked was English
+                        correctGuessFinnish();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex != engWordsIndex) {                                  //The first card clicked was Finnish
+                        incorrectGuessFinnish();
+                    }
+                    break;
+                case R.id.finnishCardBR:            //Corresponds to finnWord(5)
+                    if (noCardsClick == TRUE || firstCardEnglish == TRUE) {
+                        finnWordsIndex = 5;
+                    }
+                    if (noCardsClick == TRUE && finnWordsIndex == 5) {                                         //No cards clicked
+                        firstFinnishCard();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex == engWordsIndex) {        //The first card clicked was English
+                        correctGuessFinnish();
+                    } else if (noCardsClick == FALSE && firstCardEnglish == TRUE && finnWordsIndex != engWordsIndex) {                                  //The first card clicked was Finnish
+                        incorrectGuessFinnish();
+                    }
+                    break;
+                case R.id.englishCardTL:            //Corresponds to engWordsShuffled(0)
+                    if (noCardsClick == TRUE || firstCardFinnish == TRUE) {
+                        engWordsShuffledIndex = 0;
+                        engWordsIndex = engWords.indexOf(engWordsShuffled.get(engWordsShuffledIndex));   //gives the index of the word in the original array
+                    }
+                    if (noCardsClick == TRUE && engWordsShuffledIndex == 0) {
+                        firstEnglishCard();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex == engWordsIndex) {
+                        correctGuessEnglish();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex != engWordsIndex) {
+                        incorrectGuessEnglish();
+                    }
+                    break;
+                case R.id.englishCardTR:            //Corresponds to engWordsShuffled(1)
+                    if (noCardsClick == TRUE || firstCardFinnish == TRUE) {
+                        engWordsShuffledIndex = 1;
+                        engWordsIndex = engWords.indexOf(engWordsShuffled.get(engWordsShuffledIndex));   //gives the index of the word in the original array
+                    }
+                    if (noCardsClick == TRUE && engWordsShuffledIndex == 1) {
+                        firstEnglishCard();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex == engWordsIndex) {
+                        correctGuessEnglish();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex != engWordsIndex) {
+                        incorrectGuessEnglish();
+                    }
+                    break;
+                case R.id.englishCardML:            //Corresponds to engWordsShuffled(2)
+                    if (noCardsClick == TRUE || firstCardFinnish == TRUE) {
+                        engWordsShuffledIndex = 2;
+                        engWordsIndex = engWords.indexOf(engWordsShuffled.get(engWordsShuffledIndex));   //gives the index of the word in the original array
+                    }
+                    if (noCardsClick == TRUE && engWordsShuffledIndex == 2) {
+                        firstEnglishCard();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex == engWordsIndex) {
+                        correctGuessEnglish();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex != engWordsIndex) {
+                        incorrectGuessEnglish();
+                    }
+                    break;
+                case R.id.englishCardMR:            //Corresponds to engWordsShuffled(3)
+                    if (noCardsClick == TRUE || firstCardFinnish == TRUE) {
+                        engWordsShuffledIndex = 3;
+                        engWordsIndex = engWords.indexOf(engWordsShuffled.get(engWordsShuffledIndex));   //gives the index of the word in the original array
+                    }
+                    if (noCardsClick == TRUE && engWordsShuffledIndex == 3) {
+                        firstEnglishCard();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex == engWordsIndex) {
+                        correctGuessEnglish();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex != engWordsIndex) {
+                        incorrectGuessEnglish();
+                    }
+                    break;
+                case R.id.englishCardBL:            //Corresponds to engWordsShuffled(4)
+                    if (noCardsClick == TRUE || firstCardFinnish == TRUE) {
+                        engWordsShuffledIndex = 4;
+                        engWordsIndex = engWords.indexOf(engWordsShuffled.get(engWordsShuffledIndex));   //gives the index of the word in the original array
+                    }
+                    if (noCardsClick == TRUE && engWordsShuffledIndex == 4) {
+                        firstEnglishCard();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex == engWordsIndex) {
+                        correctGuessEnglish();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex != engWordsIndex) {
+                        incorrectGuessEnglish();
+                    }
+                    break;
+                case R.id.englishCardBR:            //Corresponds to engWordsShuffled(5)
+                    if (noCardsClick == TRUE || firstCardFinnish == TRUE) {
+                        engWordsShuffledIndex = 5;
+                        engWordsIndex = engWords.indexOf(engWordsShuffled.get(engWordsShuffledIndex));   //gives the index of the word in the original array
+                    }
+                    if (noCardsClick == TRUE && engWordsShuffledIndex == 5) {
+                        firstEnglishCard();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex == engWordsIndex) {
+                        correctGuessEnglish();
+                    } else if (noCardsClick == FALSE && firstCardFinnish == TRUE && finnWordsIndex != engWordsIndex) {
+                        incorrectGuessEnglish();
+                    }
+                    break;
+            }
         }
-    }
 
     public void loadGameView() {
+        totalPairs = 6;
+        //Assigning all textView into an array
+        finnText = new ArrayList<>();
+        engText = new ArrayList<>();
 
-        eTextTL = findViewById(R.id.englishTextTL);
-        eTextTR = findViewById(R.id.englishTextTR);
-        eTextML = findViewById(R.id.englishTextML);
-        eTextMR = findViewById(R.id.englishTextMR);
-        eTextBL = findViewById(R.id.englishTextBL);
-        eTextBR = findViewById(R.id.englishTextBR);
+        finnText.add(findViewById(R.id.finnishTextTL));
+        finnText.add(findViewById(R.id.finnishTextTR));
+        finnText.add(findViewById(R.id.finnishTextML));
+        finnText.add(findViewById(R.id.finnishTextMR));
+        finnText.add(findViewById(R.id.finnishTextBL));
+        finnText.add(findViewById(R.id.finnishTextBR));
 
-        fTextTL = findViewById(R.id.finnishTextTL);
-        fTextTR = findViewById(R.id.finnishTextTR);
-        fTextML = findViewById(R.id.finnishTextML);
-        fTextMR = findViewById(R.id.finnishTextMR);
-        fTextBL = findViewById(R.id.finnishTextBL);
-        fTextBR = findViewById(R.id.finnishTextBR);
+        engText.add(findViewById(R.id.englishTextTL));
+        engText.add(findViewById(R.id.englishTextTR));
+        engText.add(findViewById(R.id.englishTextML));
+        engText.add(findViewById(R.id.englishTextMR));
+        engText.add(findViewById(R.id.englishTextBL));
+        engText.add(findViewById(R.id.englishTextBR));
 
+        for (int i = 0; i < 6; i++) {
+            engText.get(i).setText(engWordsShuffled.get(i));
+            finnText.get(i).setText(finnWords.get(i));
+        }
 
         //Assigning the card images into an array and setting an onClickListener
         finnCards = new ArrayList<>();
@@ -200,19 +287,59 @@ public class MatchingActivity extends AppCompatActivity {
         }
     }
 
-    public void setCardText() {
-        eTextTL.setText(engWordsShuffled.get(0));
-        eTextTR.setText(engWordsShuffled.get(1));
-        eTextML.setText(engWordsShuffled.get(2));
-        eTextMR.setText(engWordsShuffled.get(3));
-        eTextBL.setText(engWordsShuffled.get(4));
-        eTextBR.setText(engWordsShuffled.get(5));
 
-        fTextTL.setText(finnWords.get(0));
-        fTextTR.setText(finnWords.get(1));
-        fTextML.setText(finnWords.get(2));
-        fTextMR.setText(finnWords.get(3));
-        fTextBL.setText(finnWords.get(4));
-        fTextBR.setText(finnWords.get(5));
+    //Methods for actions to happen when cards are clicked
+    public void firstFinnishCard() {
+        finnCards.get(finnWordsIndex).setAlpha((float) 0.0);
+        finnText.get(finnWordsIndex).setVisibility(View.VISIBLE);
+        noCardsClick = FALSE;
+        firstCardFinnish = TRUE;
+    }
+
+    public void firstEnglishCard() {
+        engCards.get(engWordsShuffledIndex).setAlpha((float) 0.0);
+        engText.get(engWordsShuffledIndex).setVisibility(View.VISIBLE);
+        noCardsClick = FALSE;
+        firstCardEnglish = TRUE;
+    }
+
+    public void correctGuessFinnish() {
+        finnCards.get(finnWordsIndex).setAlpha((float) 0.0);                                                             //and matches
+        finnText.get(finnWordsIndex).setVisibility(View.VISIBLE);
+        noCardsClick = TRUE;
+        totalPairs--;
+    }
+
+    public void correctGuessEnglish() {
+        engCards.get(engWordsShuffledIndex).setAlpha((float) 0.0);
+        engText.get(engWordsShuffledIndex).setVisibility(View.VISIBLE);
+        noCardsClick = TRUE;
+        totalPairs--;
+    }
+
+    public void incorrectGuessFinnish() {
+        finnCards.get(finnWordsIndex).setAlpha((float) 0.0);                                                             //and does not match
+        finnText.get(finnWordsIndex).setVisibility(View.VISIBLE);
+        //delay function
+        noCardsClick = TRUE;
+        firstCardFinnish = FALSE;
+        firstCardEnglish = FALSE;
+        finnCards.get(finnWordsIndex).setAlpha((float) 1.0);
+        engCards.get(engWordsShuffledIndex).setAlpha((float) 1.0);
+        finnText.get(finnWordsIndex).setVisibility(View.INVISIBLE);
+        engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
+    }
+
+    public void incorrectGuessEnglish(){
+        engCards.get(engWordsShuffledIndex).setAlpha((float) 0.0);
+        engText.get(engWordsShuffledIndex).setVisibility(View.VISIBLE);
+        //delay function
+        noCardsClick = TRUE;
+        firstCardFinnish = FALSE;
+        firstCardEnglish = FALSE;
+        finnCards.get(finnWordsIndex).setAlpha((float) 1.0);
+        engCards.get(engWordsShuffledIndex).setAlpha((float) 1.0);
+        finnText.get(finnWordsIndex).setVisibility(View.INVISIBLE);
+        engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
     }
 }
