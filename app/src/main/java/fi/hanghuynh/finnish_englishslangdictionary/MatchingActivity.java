@@ -9,11 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
@@ -28,10 +26,6 @@ public class MatchingActivity extends AppCompatActivity {
     private ArrayList<String> finnWords, engWords, engWordsShuffled;
     private ArrayList<ImageView> finnCards, engCards;
     private ArrayList<TextView> finnText, engText;
-    private ImageView finnTL, finnTR, finnML, finnMR, finnBL, finnBR;
-    private ImageView engTL, engTR, engML, engMR, engBL, engBR;
-    private TextView fTextTL, fTextTR, fTextML, fTextMR, fTextBL, fTextBR;
-    private TextView eTextTL, eTextTR, eTextML, eTextMR, eTextBL, eTextBR;
     private Boolean noCardsClick, firstCardEnglish, firstCardFinnish;
     private int finnWordsIndex, engWordsIndex, totalPairs, engWordsShuffledIndex;
     Random random = new Random();
