@@ -180,7 +180,7 @@
         tools:layout_editor_absoluteX="411dp" />
 
     <ImageView
-        android:id="@+id/Heart1"
+        android:id="@+id/heart1"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="32dp"
@@ -191,7 +191,7 @@
         app:srcCompat="@drawable/full_heart_icon" />
 
     <ImageView
-        android:id="@+id/Heart2"
+        android:id="@+id/heart2"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="32dp"
@@ -202,7 +202,7 @@
         app:srcCompat="@drawable/full_heart_icon" />
 
     <ImageView
-        android:id="@+id/Heart3"
+        android:id="@+id/heart3"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="32dp"
@@ -211,6 +211,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/full_heart_icon" />
+
+    <ImageView
+        android:id="@+id/heart4"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/full_heart_icon" />
+
+    <ImageView
+        android:id="@+id/heart5"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/full_heart_icon" />
+
+    <ImageView
+        android:id="@+id/heartEmpty"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty_heart_icon"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/englishTextTL"
