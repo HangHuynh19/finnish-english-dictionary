@@ -14,4 +14,5 @@
     <string name="total_point_announcement">0</string>
     <string name="match_button">Matching Game</string>
     <string name="empty"> </string>
+    <string name="reset_button">Reset</string>
 </resources>

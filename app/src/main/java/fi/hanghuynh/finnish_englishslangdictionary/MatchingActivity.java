@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ public class MatchingActivity extends AppCompatActivity {
     private ArrayList<TextView> finnText, engText;
     private Boolean noCardsClick, firstCardEnglish, firstCardFinnish;
     private int finnWordsIndex, engWordsIndex, totalPairs, engWordsShuffledIndex;
+    private Button btnReset;
     Random random = new Random();
 
 
@@ -232,6 +234,14 @@ public class MatchingActivity extends AppCompatActivity {
             }
         }
 
+    private final View.OnClickListener onClickListener = v -> {
+        if (v.getId() == R.id.resetBtn) {
+            resetGame();
+            btnReset.setOnClickListener(null);
+            btnReset.setVisibility(View.INVISIBLE);
+        }
+    };
+
     public void loadGameView() {
         totalPairs = 6;
         //Assigning all textView into an array
@@ -279,6 +289,8 @@ public class MatchingActivity extends AppCompatActivity {
             finnCards.get(i).setOnClickListener(this::onClick);
             engCards.get(i).setOnClickListener(this::onClick);
         }
+        btnReset = findViewById(R.id.resetBtn);
+
     }
 
 
@@ -302,6 +314,8 @@ public class MatchingActivity extends AppCompatActivity {
         finnText.get(finnWordsIndex).setVisibility(View.VISIBLE);
         noCardsClick = TRUE;
         totalPairs--;
+        engCards.get(engWordsShuffledIndex).setOnClickListener(null);
+        finnCards.get(finnWordsIndex).setOnClickListener(null);
     }
 
     public void correctGuessEnglish() {
@@ -309,6 +323,8 @@ public class MatchingActivity extends AppCompatActivity {
         engText.get(engWordsShuffledIndex).setVisibility(View.VISIBLE);
         noCardsClick = TRUE;
         totalPairs--;
+        engCards.get(engWordsShuffledIndex).setOnClickListener(null);
+        finnCards.get(finnWordsIndex).setOnClickListener(null);
     }
 
     public void incorrectGuessFinnish() {
@@ -335,5 +351,27 @@ public class MatchingActivity extends AppCompatActivity {
         engCards.get(engWordsShuffledIndex).setAlpha((float) 1.0);
         finnText.get(finnWordsIndex).setVisibility(View.INVISIBLE);
         engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
+    }
+
+    public void endGameWin() {
+        Button btnReset = findViewById(R.id.resetBtn);
+        btnReset.setOnClickListener(onClickListener);
+        btnReset.setVisibility(View.VISIBLE);
+    }
+
+    public void resetGame() {
+        for (int i = 0; i < 6; i++) {
+            finnCards.get(i).setAlpha((float) 1.0);
+            engCards.get(i).setAlpha((float) 1.0);
+            finnText.get(i).setVisibility(View.INVISIBLE);
+            engText.get(i).setVisibility(View.INVISIBLE);
+        }
+        generateRandom();
+        engWordsShuffled = new ArrayList<>(engWords);
+        Collections.shuffle(engWordsShuffled);
+        Log.d("test2", "" + finnWords);
+        Log.d("test2", "" + engWords);
+        Log.d("test2", "" + engWordsShuffled);
+        loadGameView();
     }
 }
