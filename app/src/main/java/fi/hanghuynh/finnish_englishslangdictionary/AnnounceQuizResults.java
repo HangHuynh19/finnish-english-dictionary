@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/** Modeling the Activity to announce the user score after finishing the quiz **/
 public class AnnounceQuizResults extends AppCompatActivity {
+    private SharedPreferences prefGet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +17,8 @@ public class AnnounceQuizResults extends AppCompatActivity {
 
         TextView userScoreDisplay = findViewById(R.id.scoreAnnouncement);
 
-        SharedPreferences prefGet = getSharedPreferences("my_pref", MODE_PRIVATE);
-        long userScore = prefGet.getLong("user_progress", 0);
+        prefGet = getSharedPreferences("my_pref", MODE_PRIVATE);
+        long userScore = prefGet.getLong("quiz_score", 0);
         userScoreDisplay.setText(Long.toString(userScore));
     }
 }

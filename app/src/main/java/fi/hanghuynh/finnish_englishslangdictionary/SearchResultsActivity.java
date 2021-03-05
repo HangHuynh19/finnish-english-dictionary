@@ -49,7 +49,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         }
     }
 
-    //Creates an array to store the String that shows the Finnish Word and Translation
+    /** Creates an array to store the String that shows the Finnish Word and Translation **/
     public List<String> getSearchedWords() {
         searchedWords = new ArrayList<>();
 
@@ -60,9 +60,16 @@ public class SearchResultsActivity extends AppCompatActivity {
         return searchedWords;
     }
 
+    // Preference: https://github.com/jonndavis1993/Android-Tutorials/blob/master/app/src/main/java/com/simpleware/jonathan/listviewexample/MainActivity.java
+    /** Create list adapter for displaying array of searchedWords **/
     private class ListAdapter extends ArrayAdapter<String> {
         private int layout;
         private ArrayList<String> list;
+
+        /** List adapter constructor
+         * @param context Context
+         * @param resources int
+         * @param objects ArrayList **/
         private ListAdapter(Context context, int resources, ArrayList<String> objects) {
             super(context, resources, objects);
             this.layout = resources;
@@ -98,6 +105,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         }
     }
 
+    /** Modeling ViewHolder for individual item on ListView **/
     public class ViewHolder {
         TextView result;
         ImageButton bookmark;

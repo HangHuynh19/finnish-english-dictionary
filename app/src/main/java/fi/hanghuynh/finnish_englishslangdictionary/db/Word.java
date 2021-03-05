@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/** Modeling a Word object **/
 @Entity
 public class Word {
     @PrimaryKey(autoGenerate = true)
@@ -17,6 +18,11 @@ public class Word {
 
     public boolean bookmarked;
 
+    /** Constructor
+     * @param id int
+     * @param finnishWord String
+     * @param englishTranslation String
+     */
     public Word(int id, String finnishWord, String englishTranslation) {
         this.id = id;
         this.finnishWord = finnishWord;
@@ -24,19 +30,29 @@ public class Word {
         this.bookmarked = false;
     }
 
+    /** Get Finnish word from the object
+     * @return String type of Finnish word
+     */
     public String getFinnishWord() {
         return this.finnishWord;
     }
 
+    /** Get ID of a Word object
+     * @return interger number representing the ID
+     */
     public int getId() {
         return this.id;
     }
 
+    /** Method to bookmark a word
+     * @return the state true for the property bookmarked of the object Word */
     public boolean bookmark() {
         this.bookmarked = true;
         return bookmarked;
     }
 
+    /** Method to undo a already bookmarked words
+     * @return the state false for the property bookmarked of the object Word */
     public boolean undoBookmark() {
         this.bookmarked = false;
         return bookmarked;

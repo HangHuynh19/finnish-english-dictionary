@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16sp"
+    android:background="#1F2933"
     tools:context=".SearchActivity">
 
     <TextView
         android:id="@+id/searchedWordTxt2"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="fill"
         android:layout_margin="5sp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="15dp"
         android:text="@string/search_result_activity_layout2_txt"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

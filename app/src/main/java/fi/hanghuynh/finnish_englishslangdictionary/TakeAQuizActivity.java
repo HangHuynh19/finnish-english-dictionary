@@ -22,20 +22,19 @@ import java.util.concurrent.TimeUnit;
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
 import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
 
+/** Modeling Take-A-Quiz Activity to display quiz questions and their multiple choices **/
 public class TakeAQuizActivity extends AppCompatActivity {
 
     protected static final String USER_PROGRESS = "user_progress";
+    protected static final String QUIZ_SCORE = "quiz_score";
     private SharedPreferences prefGet;
     private SharedPreferences prefPut;
     private List<String> finnishWord;
     private List<String> englishTranslation;
     private TakeAQuizUI quiz;
     private ArrayList<String> quizInfo;
-    private RadioGroup optionGroup;
     private int userScore = 0;
-    private TextView timer;
     private CountDownTimer countDownTimer;
-    private long userProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +54,11 @@ public class TakeAQuizActivity extends AppCompatActivity {
         onClickListener click = new onClickListener();
         btnNext.setOnClickListener(click);
 
-        timer = findViewById(R.id.timer);
+        TextView timer = findViewById(R.id.timer);
 
+        // Implement timer to count down from 1 minute
+        // Preference: https://www.youtube.com/watch?v=T_wSEnqGPdo
+        // https://developer.android.com/reference/java/util/Timer#schedule(java.util.TimerTask,%20java.util.Date)
         //long duration = TimeUnit.MINUTES.toMillis(1);
 
         long duration = TimeUnit.MILLISECONDS.toMillis(5000);
@@ -75,19 +77,13 @@ public class TakeAQuizActivity extends AppCompatActivity {
             public void onFinish() {
                 userScore = checkUserAnswer(quizInfo);
                 prefGet = getSharedPreferences("my_pref", MODE_PRIVATE);
-                userProgress = prefGet.getLong(USER_PROGRESS, 0) + userScore;
+                long userProgress = prefGet.getLong(USER_PROGRESS, 0) + userScore;
                 Log.d("user progress", Long.toString(userProgress));
 
                 prefPut = getSharedPreferences("my_pref", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefPut.edit();
                 editor.putLong(USER_PROGRESS, userProgress);
                 editor.apply();
-
-                /**setContentView(R.layout.activity_take_quiz2);
-
-                TextView userScoreDisplay = findViewById(R.id.scoreAnnouncement);
-
-                userScoreDisplay.setText(Integer.toString(userScore));**/
 
                 startActivity(new Intent(TakeAQuizActivity.this, AnnounceQuizResults.class));
 
@@ -127,6 +123,8 @@ public class TakeAQuizActivity extends AppCompatActivity {
         countDownTimer.start();
     }
 
+    /** Displaying quiz questions and their multiple choices
+     * @param quiz ArrayList<String> **/
     private void displayQuestionsAndOptions(ArrayList<String> quiz) {
         TextView question = findViewById(R.id.question);
         RadioButton option1 = findViewById(R.id.option1);
@@ -140,8 +138,11 @@ public class TakeAQuizActivity extends AppCompatActivity {
         option3.setText(quiz.get(4));
     }
 
+    /** Function to check whether the user's answer is correct or not, calculate the user's score
+     * on the quiz and save the user score to shared preference
+     * @param quiz ArrayList<String> **/
     private int checkUserAnswer(ArrayList<String> quiz) {
-        optionGroup = (RadioGroup) findViewById(R.id.optionGroup);
+        RadioGroup optionGroup = (RadioGroup) findViewById(R.id.optionGroup);
         String userAnswer =
                 ((RadioButton)findViewById(optionGroup.getCheckedRadioButtonId()))
                         .getText().toString();
@@ -150,9 +151,17 @@ public class TakeAQuizActivity extends AppCompatActivity {
             userScore++;
         }
 
+        prefPut = getSharedPreferences("my_pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefPut.edit();
+        editor.putLong(QUIZ_SCORE, userScore);
+        editor.apply();
+
         return userScore;
     }
 
+    /** Modeling onClickListener class for next button
+     * When the user clicks next button, the app will check the user's answer, calculate user score
+     * and display new question **/
     private class onClickListener implements View.OnClickListener {
 
         @Override

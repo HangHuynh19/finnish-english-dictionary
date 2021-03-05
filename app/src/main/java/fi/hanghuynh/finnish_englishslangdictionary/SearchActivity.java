@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
 
+/** Modeling Search Activity that gets user input **/
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
 private String searchedWord;
@@ -51,12 +52,13 @@ private ArrayList<Integer> wordId;
         }
     }
 
+    /** Search function: scanning database to see if there is Finnish word containing user input **/
     public void search() {
         int dbSize = db.getWordArraySize();
         wordId = new ArrayList<>();
         for (int i = 0; i < dbSize; i++) {
             if (db.getWord(i).finnishWord.contains(searchedWord)){
-                Log.d("test", Integer.toString(db.getWord(i).id));
+                //Log.d("test", Integer.toString(db.getWord(i).id));
                 wordId.add(i);
             }
         }

@@ -13,21 +13,32 @@ import java.util.List;
 import fi.hanghuynh.finnish_englishslangdictionary.R;
 import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
 
+// Preference: https://github.com/google-developer-training/android-advanced/blob/master/RoomWordsWithDelete/app/src/main/java/com/android/example/roomwordssample/WordListAdapter.java
+/** Modeling list adapter for bookmarked word list **/
 public class BookmarkedWordListAdapter extends RecyclerView.Adapter<BookmarkedWordListAdapter.WordViewHolder>{
 
     private final LayoutInflater mInflater;
     private List<Word> mWords; // Cached copy of words
 
+    /** Class constructor
+     * @param context Context **/
     public BookmarkedWordListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
     }
 
+    /** Put layout of individual bookmarked word to parent view group
+     * @param parent ViewGroup
+     * @param viewType int
+     * @return view holder of individual word **/
     @Override
     public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.bookmarked_word_layout, parent, false);
         return new WordViewHolder(itemView);
     }
 
+    /** Update the view holder to reflect the bookmark word at a specific position
+     * @param holder WordViewHolder
+     * @param position int **/
     @Override
     public void onBindViewHolder(WordViewHolder holder, int position) {
         if (mWords != null) {
@@ -39,17 +50,15 @@ public class BookmarkedWordListAdapter extends RecyclerView.Adapter<BookmarkedWo
         }
     }
 
-    /**
-     *     Associate a list of words with this adapter
-     */
-
+    /** Associate a list of words with this adapter
+     * @param words List<Word>**/
     public void setWords(List<Word> words) {
         mWords = words;
         notifyDataSetChanged();
     }
 
-    // getItemCount() is called many times, and when it is first called,
-    // mWords has not been updated (means initially, it's null, and we can't return null).
+    /** Count numbers of items in the array
+     * @return integer number of array size **/
     @Override
     public int getItemCount() {
         if (mWords != null)
@@ -61,17 +70,19 @@ public class BookmarkedWordListAdapter extends RecyclerView.Adapter<BookmarkedWo
      * Get the word at a given position.
      * This method is useful for identifying which word
      * was clicked or swiped in methods that handle user events.
-     *
      * @param position
      * @return The word at the given position
-     */
+     **/
     public Word getWordAtPosition(int position) {
         return mWords.get(position);
     }
 
+    /** Set the place for the adapter to display individual bookmarked word **/
     class WordViewHolder extends RecyclerView.ViewHolder {
         private final TextView wordItemView;
 
+        /** View holder constructor
+         * @param itemView View **/
         private WordViewHolder(View itemView) {
             super(itemView);
             wordItemView = itemView.findViewById(R.id.bookmarkedWordTv);
