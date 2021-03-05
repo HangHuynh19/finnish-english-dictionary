@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InitialScreenActivity"
-    android:background="@drawable/app_start_screen_image">
+    android:background="#1F2933"
+    android:foreground="@drawable/app_start_screen">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
