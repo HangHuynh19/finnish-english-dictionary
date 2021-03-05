@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
         Button btnSearch = findViewById(R.id.searchBtn);
         Button btnTakeQuiz = findViewById(R.id.quizBtn);
