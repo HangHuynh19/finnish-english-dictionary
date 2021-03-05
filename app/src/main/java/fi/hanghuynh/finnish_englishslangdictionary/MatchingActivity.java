@@ -455,7 +455,7 @@ public class MatchingActivity extends AppCompatActivity {
             finnText.get(i).setVisibility(View.INVISIBLE);
             engText.get(i).setVisibility(View.INVISIBLE);
             resetLives();
-            Toast.makeText(this, "This is my message", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "This is my message", Toast.LENGTH_SHORT).show();
         }
         generateRandom();
         engWordsShuffled = new ArrayList<>(engWords);
