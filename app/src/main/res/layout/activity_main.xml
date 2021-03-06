@@ -57,6 +57,21 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
+        android:id="@+id/matchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="5sp"
+        android:text="@string/match_button"
+        android:textColor="#000000"
+        app:backgroundTint="#FF991F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
         android:id="@+id/progressBtn"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -66,16 +81,8 @@
         app:backgroundTint="#FF991F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quizBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/matchBtn" />
 
-    <Button
-        android:id="@+id/matchBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="@string/match_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

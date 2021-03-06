@@ -14,6 +14,7 @@ public class ProgressActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
+        getSupportActionBar().hide();
 
         SharedPreferences prefGet = getSharedPreferences("my_pref", MODE_PRIVATE);
         long userProgress = prefGet.getLong("user_progress", 0);

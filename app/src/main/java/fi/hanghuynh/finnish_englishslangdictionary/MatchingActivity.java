@@ -38,6 +38,7 @@ public class MatchingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matching);
+        getSupportActionBar().hide();
 
         db = AppDatabase.getDbInstance(this.getApplicationContext());
         noCardsClick = TRUE;
