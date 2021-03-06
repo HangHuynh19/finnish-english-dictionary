@@ -42,5 +42,6 @@ public class InitialScreenActivity extends AppCompatActivity {
 
      /*
     reference: https://www.youtube.com/watch?v=GtE8NwOQoos
+    Image: https://vectr.com/dfallow95/b2j5qxrBG.png?width=640&height=640&select=b2j5qxrBGpage0
      */
 }

@@ -14,6 +14,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
 
@@ -49,10 +51,14 @@ public class MatchingActivity extends AppCompatActivity {
         Collections.shuffle(engWordsShuffled);
         loadGameView();
 
-        Log.d("test", "engWordsShuffled: " + engWordsShuffled);
+        //Log.d("words", "finnishWords: " + finnWords);
+        //Log.d("words", "engWords: " + engWords);
+        //Log.d("words", "engWordsShuffled: " + engWordsShuffled);
     }
 
-    //Generating the index of 6 random words from the database
+    /*
+    Generating the index of 6 random words from the database
+    */
     public void generateRandom() {
 
         ArrayList<Integer> randNumbers = new ArrayList<>();
@@ -70,11 +76,11 @@ public class MatchingActivity extends AppCompatActivity {
                 }
         }
     }
-    //
-    //On click listener responsible fo all of the image cards
-    //Each case for the finnishCards is the same apart from finnWordsIndex
-    //Each case for the englishCards is the same apart from engWordsShuffledIndex
-    //
+    /*
+    On click listener responsible fo all of the image cards
+    Each case for the finnishCards is the same apart from finnWordsIndex
+    Each case for the englishCards is the same apart from engWordsShuffledIndex
+     */
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v) {
             switch (v.getId()) {
@@ -384,20 +390,27 @@ public class MatchingActivity extends AppCompatActivity {
     public void incorrectGuessFinnish() {
         finnCards.get(finnWordsIndex).setAlpha((float) 0.0);
         finnText.get(finnWordsIndex).setVisibility(View.VISIBLE);
-        //
-        //delay function
-        //
-        noCardsClick = TRUE;
-        firstCardFinnish = FALSE;
-        firstCardEnglish = FALSE;
-        finnCards.get(finnWordsIndex).setAlpha((float) 1.0);
-        engCards.get(engWordsShuffledIndex).setAlpha((float) 1.0);
-        finnText.get(finnWordsIndex).setVisibility(View.INVISIBLE);
-        engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
         updateLives();
         //
-        //Toast Message
+        //Toast Message Here
         //
+        /*
+        Timer to delay when cards disappear. Code in run() will start once the
+        delay timer finishes
+         */
+        new Timer().schedule(
+                new TimerTask() {
+                    @Override
+                    public void run() {
+                        noCardsClick = TRUE;
+                        firstCardFinnish = FALSE;
+                        firstCardEnglish = FALSE;
+                        finnCards.get(finnWordsIndex).setAlpha((float) 1.0);
+                        engCards.get(engWordsShuffledIndex).setAlpha((float) 1.0);
+                        finnText.get(finnWordsIndex).setVisibility(View.INVISIBLE);
+                        engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
+                    }
+                }, 2000 );
     }
 
     /*
@@ -406,21 +419,28 @@ public class MatchingActivity extends AppCompatActivity {
     public void incorrectGuessEnglish(){
         engCards.get(engWordsShuffledIndex).setAlpha((float) 0.0);
         engText.get(engWordsShuffledIndex).setVisibility(View.VISIBLE);
-        //
-        //delay function
-        //
-        noCardsClick = TRUE;
-        firstCardFinnish = FALSE;
-        firstCardEnglish = FALSE;
-        finnCards.get(finnWordsIndex).setAlpha((float) 1.0);
-        engCards.get(engWordsShuffledIndex).setAlpha((float) 1.0);
-        finnText.get(finnWordsIndex).setVisibility(View.INVISIBLE);
-        engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
         updateLives();
         //
-        //Toast Message
+        //Toast Message Here
         //
+        /*
+        Timer to delay when cards disappear. Code in run() will start once the
+        delay timer finishes
+         */
+        new Timer().schedule(
+                new TimerTask() {
+                    @Override
+                    public void run() {
+                        noCardsClick = TRUE;
+                        firstCardFinnish = FALSE;
+                        firstCardEnglish = FALSE;
+                        finnCards.get(finnWordsIndex).setAlpha((float) 1.0);
+                        engCards.get(engWordsShuffledIndex).setAlpha((float) 1.0);
+                        finnText.get(finnWordsIndex).setVisibility(View.INVISIBLE);
+                        engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
 
+                    }
+                }, 2000);
     }
 
     /*
