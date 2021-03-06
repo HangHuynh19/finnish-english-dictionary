@@ -156,5 +156,5 @@ public class TakeAQuizActivity extends AppCompatActivity {
                 displayQuestionsAndOptions(quizInfo);
             }
         }
-    };
+    }
 }
