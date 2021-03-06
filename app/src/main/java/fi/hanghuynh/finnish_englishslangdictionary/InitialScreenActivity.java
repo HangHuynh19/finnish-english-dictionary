@@ -16,12 +16,18 @@ public class InitialScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_initial_screen);
         getSupportActionBar().hide();
     }
-
+    /*
+    Switches to MainActivity, finish() ensures you can't revisit this activity
+     */
     private final Runnable runnable = () -> {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
     };
 
+    /*
+    Set a 3 second delay when the initial screen is loaded, before the next
+    activity is run
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -33,4 +39,8 @@ public class InitialScreenActivity extends AppCompatActivity {
         super.onPause();
         handler.removeCallbacks(runnable);
     }
+
+     /*
+    reference: https://www.youtube.com/watch?v=GtE8NwOQoos
+     */
 }

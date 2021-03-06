@@ -34,6 +34,10 @@ private int[] wordId;
         btnSearch.setOnClickListener(this);
     }
 
+    /*
+    onClickListener set for SearchActivity. Search button will run the function search()
+    and load the SearchResultsActivity
+     */
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.backBtn) {
@@ -48,6 +52,10 @@ private int[] wordId;
         }
     }
 
+    /*
+    search function searches database for words containing the inputted text into
+    the editText box
+     */
     public void search() {
         int dbSize = db.getWordArraySize(), j = 0;
         wordId = new int[dbSize];
