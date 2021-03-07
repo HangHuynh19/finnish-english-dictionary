@@ -15,4 +15,6 @@
     <string name="match_button">Matching Game</string>
     <string name="empty"> </string>
     <string name="reset_button">Reset</string>
+    <string name="card">Card for game</string>
+    <string name="heart">Heart for game</string>
 </resources>

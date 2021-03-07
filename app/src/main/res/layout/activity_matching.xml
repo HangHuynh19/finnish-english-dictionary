@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toStartOf="@+id/englishCardMR"
         app:layout_constraintStart_toEndOf="@+id/englishCardML"
         app:layout_constraintTop_toBottomOf="@+id/englishCardTR"
-        app:srcCompat="@drawable/match_card_finnish" />
+        app:srcCompat="@drawable/match_card_finnish"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/finnishCardBR"
@@ -31,7 +32,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/englishCardBR"
         app:layout_constraintTop_toBottomOf="@+id/englishCardMR"
-        app:srcCompat="@drawable/match_card_finnish" />
+        app:srcCompat="@drawable/match_card_finnish"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/englishCardBR"
@@ -44,7 +46,8 @@
         app:layout_constraintEnd_toStartOf="@+id/finnishCardBR"
         app:layout_constraintStart_toEndOf="@+id/finnishCardBL"
         app:layout_constraintTop_toBottomOf="@+id/finnishCardMR"
-        app:srcCompat="@drawable/match_card_english" />
+        app:srcCompat="@drawable/match_card_english"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/englishCardBL"
@@ -59,7 +62,8 @@
         app:layout_constraintEnd_toStartOf="@+id/finnishCardBL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finnishCardML"
-        app:srcCompat="@drawable/match_card_english" />
+        app:srcCompat="@drawable/match_card_english"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/englishCardMR"
@@ -72,7 +76,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/finnishCardMR"
         app:layout_constraintTop_toBottomOf="@+id/finnishCardTR"
-        app:srcCompat="@drawable/match_card_english" />
+        app:srcCompat="@drawable/match_card_english"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/finnishCardBL"
@@ -85,7 +90,8 @@
         app:layout_constraintEnd_toStartOf="@+id/englishCardBR"
         app:layout_constraintStart_toEndOf="@+id/englishCardBL"
         app:layout_constraintTop_toBottomOf="@+id/englishCardML"
-        app:srcCompat="@drawable/match_card_finnish" />
+        app:srcCompat="@drawable/match_card_finnish"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/finnishCardTR"
@@ -99,7 +105,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/englishCardTR"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/match_card_finnish" />
+        app:srcCompat="@drawable/match_card_finnish"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/finnishCardML"
@@ -114,7 +121,8 @@
         app:layout_constraintEnd_toStartOf="@+id/englishCardML"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/englishCardTL"
-        app:srcCompat="@drawable/match_card_finnish" />
+        app:srcCompat="@drawable/match_card_finnish"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/englishCardTL"
@@ -130,7 +138,8 @@
         app:layout_constraintEnd_toStartOf="@+id/finnishCardTL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/match_card_english" />
+        app:srcCompat="@drawable/match_card_english"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/englishCardML"
@@ -143,7 +152,8 @@
         app:layout_constraintEnd_toStartOf="@+id/finnishCardMR"
         app:layout_constraintStart_toEndOf="@+id/finnishCardML"
         app:layout_constraintTop_toBottomOf="@+id/finnishCardTL"
-        app:srcCompat="@drawable/match_card_english" />
+        app:srcCompat="@drawable/match_card_english"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/finnishCardTL"
@@ -157,7 +167,8 @@
         app:layout_constraintEnd_toStartOf="@+id/englishCardTR"
         app:layout_constraintStart_toEndOf="@+id/englishCardTL"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/match_card_finnish" />
+        app:srcCompat="@drawable/match_card_finnish"
+        android:contentDescription="@string/card" />
 
     <ImageView
         android:id="@+id/englishCardTR"
@@ -171,7 +182,8 @@
         app:layout_constraintEnd_toStartOf="@+id/finnishCardTR"
         app:layout_constraintStart_toEndOf="@+id/finnishCardTL"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/match_card_english" />
+        app:srcCompat="@drawable/match_card_english"
+        android:contentDescription="@string/card" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"
@@ -189,7 +201,8 @@
         android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/full_heart_icon" />
+        app:srcCompat="@drawable/full_heart_icon"
+        android:contentDescription="@string/heart" />
 
     <ImageView
         android:id="@+id/heart2"
@@ -200,7 +213,8 @@
         android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/full_heart_icon" />
+        app:srcCompat="@drawable/full_heart_icon"
+        android:contentDescription="@string/heart" />
 
     <ImageView
         android:id="@+id/heart3"
@@ -211,7 +225,8 @@
         android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/full_heart_icon" />
+        app:srcCompat="@drawable/full_heart_icon"
+        android:contentDescription="@string/heart" />
 
     <ImageView
         android:id="@+id/heart4"
@@ -222,7 +237,8 @@
         android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/full_heart_icon" />
+        app:srcCompat="@drawable/full_heart_icon"
+        android:contentDescription="@string/heart" />
 
     <ImageView
         android:id="@+id/heart5"
@@ -233,7 +249,8 @@
         android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/full_heart_icon" />
+        app:srcCompat="@drawable/full_heart_icon"
+        android:contentDescription="@string/heart" />
 
     <ImageView
         android:id="@+id/heartEmpty"
@@ -245,7 +262,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/empty_heart_icon"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/heart" />
 
     <TextView
         android:id="@+id/englishTextTL"
