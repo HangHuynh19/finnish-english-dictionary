@@ -365,9 +365,7 @@ public class MatchingActivity extends AppCompatActivity {
         engCards.get(engWordsShuffledIndex).setOnClickListener(null);
         finnCards.get(finnWordsIndex).setOnClickListener(null);
         totalPairs--;
-        //
-        //Toast Message
-        //
+        Toast.makeText(MatchingActivity.this, "Correct", Toast.LENGTH_SHORT).show();
     }
 
     /*
@@ -380,9 +378,7 @@ public class MatchingActivity extends AppCompatActivity {
         engCards.get(engWordsShuffledIndex).setOnClickListener(null);
         finnCards.get(finnWordsIndex).setOnClickListener(null);
         totalPairs--;
-        //
-        //Toast Message
-        //
+        Toast.makeText(MatchingActivity.this, "Correct", Toast.LENGTH_SHORT).show();
     }
 
     /*
@@ -392,9 +388,7 @@ public class MatchingActivity extends AppCompatActivity {
         finnCards.get(finnWordsIndex).setAlpha((float) 0.0);
         finnText.get(finnWordsIndex).setVisibility(View.VISIBLE);
         updateLives();
-        //
-        //Toast Message Here
-        //
+        Toast.makeText(MatchingActivity.this, "Incorrect", Toast.LENGTH_SHORT).show();
         /*
         Timer to delay when cards disappear. Code in run() will start once the
         delay timer finishes
@@ -421,9 +415,7 @@ public class MatchingActivity extends AppCompatActivity {
         engCards.get(engWordsShuffledIndex).setAlpha((float) 0.0);
         engText.get(engWordsShuffledIndex).setVisibility(View.VISIBLE);
         updateLives();
-        //
-        //Toast Message Here
-        //
+        Toast.makeText(MatchingActivity.this, "Incorrect", Toast.LENGTH_SHORT).show();
         /*
         Timer to delay when cards disappear. Code in run() will start once the
         delay timer finishes
@@ -477,7 +469,7 @@ public class MatchingActivity extends AppCompatActivity {
             engText.get(i).setVisibility(View.INVISIBLE);
             resetLives();
         }
-        Toast.makeText(this, "This is my message", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Game Reset", Toast.LENGTH_SHORT).show();
         generateRandom();
         engWordsShuffled = new ArrayList<>(engWords);
         Collections.shuffle(engWordsShuffled);
