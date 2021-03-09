@@ -41,7 +41,6 @@ public class MatchingActivity extends AppCompatActivity {
     protected static final String TOT_GAMES = "total games played", TOT_GAMES_WON = "total games won";
     Random random = new Random();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +75,7 @@ public class MatchingActivity extends AppCompatActivity {
         //Log.d("words", "engWordsShuffled: " + engWordsShuffled);
     }
 
-    /*
+    /**
     Generating the index of 6 random words from the database
     */
     public void generateRandom() {
@@ -96,10 +95,11 @@ public class MatchingActivity extends AppCompatActivity {
                 }
         }
     }
-    /*
+    /**
     On click listener responsible fo all of the image cards
     Each case for the finnishCards is the same apart from finnWordsIndex
     Each case for the englishCards is the same apart from engWordsShuffledIndex
+     @param v View
      */
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v) {
@@ -354,9 +354,7 @@ public class MatchingActivity extends AppCompatActivity {
             engCards.get(i).setOnClickListener(this::onClick);
         }
         btnReset = findViewById(R.id.resetBtn);
-
     }
-
 
     /*
     The following functions are called when cards are clicked,
@@ -487,7 +485,6 @@ public class MatchingActivity extends AppCompatActivity {
         gameWon = 1;
         gamePlayed = 1;
         updateTotalGames();
-
     }
 
     /*
@@ -538,6 +535,5 @@ public class MatchingActivity extends AppCompatActivity {
 
         played.setText(Integer.toString(totalGames));
         won.setText(Integer.toString(totalGamesWon));
-
     }
 }
