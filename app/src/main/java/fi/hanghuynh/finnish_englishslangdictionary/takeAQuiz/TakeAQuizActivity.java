@@ -62,7 +62,7 @@ public class TakeAQuizActivity extends AppCompatActivity {
         // https://developer.android.com/reference/java/util/Timer#schedule(java.util.TimerTask,%20java.util.Date)
         //long duration = TimeUnit.MINUTES.toMillis(1);
 
-        long duration = TimeUnit.MILLISECONDS.toMillis(5000);
+        long duration = TimeUnit.MILLISECONDS.toMillis(60000);
 
         countDownTimer = new CountDownTimer(duration, 1000) {
             @Override
