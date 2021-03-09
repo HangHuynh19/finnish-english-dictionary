@@ -9,19 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinnishEnglishSlangDictionary">
-        <activity android:name=".InitialScreenActivity">
+        <activity android:name=".InitialScreenActivity" />
+        <activity android:name=".takeAQuiz.AnnounceQuizResults" />
+        <activity android:name=".searchActivity.SearchResultsActivity" />
+        <activity android:name=".progressActivity.ProgressActivity" />
+        <activity android:name=".searchActivity.SearchActivity" />
+        <activity android:name=".takeAQuiz.TakeAQuizActivity" />
+        <activity android:name=".wordOfTheDayFeature.AlarmsetActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchResultsActivity" />
-        <activity android:name=".ProgressActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".TakeAQuizActivity" />
-        <activity android:name=".MainActivity" />
+
         <activity android:name=".MatchingActivity"/>
+        <activity android:name=".wordOfTheDayFeature.NotificationActivity"/>
+        <receiver android:name=".wordOfTheDayFeature.AlarmReceiver"/>
     </application>
 
 </manifest>

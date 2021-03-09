@@ -9,6 +9,10 @@ import androidx.room.RoomDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+// Preference: https://www.youtube.com/watch?v=AqhaxM_C0YU&t=181s
+// https://www.youtube.com/watch?v=ONb_MuPBBlg&t=390s
+
+/** Create singleton class as the entry point of database **/
 @Database(entities = {Word.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -16,6 +20,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract WordDAO wordDAO();
     private static AppDatabase INSTANCE;
 
+    /** Populate the database **/
     public AppDatabase() {
         words = new ArrayList<>();
         words.add(new Word(1, "affa", "sunrise"));
@@ -178,6 +183,9 @@ public abstract class AppDatabase extends RoomDatabase {
         words.add(new Word(158, "Volkkari", "Volkswagen"));
     }
 
+    /** Instantiating database
+     * @param context Context
+     * @return instance of app database **/
     public static AppDatabase getDbInstance(Context context) {
         if(INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "APP_DB")
@@ -187,9 +195,14 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
+    /** Get word at a specific index in the database
+     * @param index int
+     * @return Word object at the given index **/
     public Word getWord(int index) { return words.get(index);
     }
 
+    /** Get the size of database
+     * @return integer number indicating the size of the database **/
     public int getWordArraySize() {
         return words.size();
     }

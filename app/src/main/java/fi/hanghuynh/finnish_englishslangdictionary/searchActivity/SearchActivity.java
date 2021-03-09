@@ -1,4 +1,4 @@
-package fi.hanghuynh.finnish_englishslangdictionary;
+package fi.hanghuynh.finnish_englishslangdictionary.searchActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,15 +9,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import java.util.ArrayList;
 
+import fi.hanghuynh.finnish_englishslangdictionary.MainActivity;
+import fi.hanghuynh.finnish_englishslangdictionary.R;
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
+import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
 
+/** Modeling Search Activity that gets user input **/
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
-private String searchedWord;
-private  AppDatabase db;
-private EditText searchBar;
-private int[] wordId;
+    private String searchedWord;
+    private  AppDatabase db;
+    private EditText searchBar;
+    private ArrayList<Integer> wordId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,15 @@ private int[] wordId;
 
         btnBack.setOnClickListener(this);
         btnSearch.setOnClickListener(this);
+
+        // Fulfill the intent from Progress Activity. A clicked bookmarked Finnish word will be
+        // copied to the search for the user to search its meaning
+        Intent intent = getIntent();
+
+        if(intent.getExtras() != null) {
+            Word word = (Word) intent.getSerializableExtra("bookmarked word");
+            searchBar.setText(word.getFinnishWord());
+        }
     }
 
     /*
@@ -53,18 +67,19 @@ private int[] wordId;
         }
     }
 
+
     /*
     search function searches database for words containing the inputted text into
     the editText box
      */
+
     public void search() {
-        int dbSize = db.getWordArraySize(), j = 0;
-        wordId = new int[dbSize];
+        int dbSize = db.getWordArraySize();
+        wordId = new ArrayList<>();
         for (int i = 0; i < dbSize; i++) {
             if (db.getWord(i).finnishWord.contains(searchedWord)){
-                Log.d("test", db.getWord(i).finnishWord);
-                wordId[j] = i;
-                j++;
+                //Log.d("test", Integer.toString(db.getWord(i).id));
+                wordId.add(i);
             }
         }
     }

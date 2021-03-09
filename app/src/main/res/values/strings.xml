@@ -17,6 +17,12 @@
     <string name="reset_button">Reset</string>
     <string name="card">Card for game</string>
     <string name="heart">Heart for game</string>
+    <string name="search_result_activity_layout2_txt">No word found</string>
+    <string name="word_of_the_day">Word of The Day</string>
+    <string name="time_picker">Pick time</string>
+    <string name="cancel_alarm">Cancel Alarm</string>
+    <string name="set_alarm">No Alarm set </string>
+    <string name="setting_btn">Settings</string>
     <string name="played">Games Played</string>
     <string name="won">Games Won</string>
 </resources>
