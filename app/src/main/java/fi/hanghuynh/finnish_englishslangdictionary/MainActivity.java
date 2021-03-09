@@ -6,11 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 
 import java.util.Calendar;
 import java.util.Date;
@@ -37,19 +35,14 @@ public class MainActivity extends AppCompatActivity {
     // After the user clicks the the button, it will lead them to the assigned Activity
     private View.OnClickListener onClickListener = v -> {
         if (v.getId() == R.id.searchBtn){
-            //Log.d("button", "search button");
             startActivity(new Intent(MainActivity.this, SearchActivity.class));
         } else if (v.getId() == R.id.quizBtn){
-            //Log.d("button", "quiz button");
             startActivity(new Intent(MainActivity.this, TakeAQuizActivity.class));
         } else if (v.getId() == R.id.progressBtn){
-            //Log.d("button", "progress button");
             startActivity(new Intent(MainActivity.this, ProgressActivity.class));
         } else if (v.getId() == R.id.matchBtn){
-            Log.d("button", "matching game button");
             startActivity(new Intent(MainActivity.this, MatchingActivity.class));
         } else if (v.getId() == R.id.settingBtn) {
-            Log.d("button", "Wordoftheday button");
             startActivity(new Intent(MainActivity.this, AlarmsetActivity.class));
         }
     };
@@ -64,9 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnTakeQuiz = findViewById(R.id.quizBtn);
         Button btnShowProgress = findViewById(R.id.progressBtn);
         Button btnMatch = findViewById(R.id.matchBtn);
-        TextView wordOfTheDayTv = findViewById(R.id.wordOfTheDay);
         Button wordBtn = findViewById(R.id.settingBtn);
-
 
         btnSearch.setOnClickListener(onClickListener);
         btnTakeQuiz.setOnClickListener(onClickListener);
@@ -122,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
 
         prefGet = getSharedPreferences(SHARED_PREF_FILE, MODE_PRIVATE);
         long executionTimeInMillis = prefGet.getLong(WORD_OF_THE_DAY_EXECUTION_TIME, 0);
-        Log.d("old time", Long.toString(executionTimeInMillis));
         String previousWordOfTheDay = prefGet.getString(WORD_OF_THE_DAY, "No word stored");
 
         // Preference: https://www.tutorialspoint.com/java/util/calendar_gettime.htm
@@ -131,8 +121,7 @@ public class MainActivity extends AppCompatActivity {
         Date currentDate = calendar.getTime();
         calendar.setTime(currentDate);
         long currentDateInMillis = calendar.getTimeInMillis();
-        Log.d("current time", Long.toString(currentDateInMillis));
-        Log.d("time different", Long.toString(currentDateInMillis - executionTimeInMillis));
+
         if((currentDateInMillis - executionTimeInMillis) > 86400000) {
             generateWordOfTheDay(previousWordOfTheDay);
             prefPut = getSharedPreferences("my_pref", MODE_PRIVATE);

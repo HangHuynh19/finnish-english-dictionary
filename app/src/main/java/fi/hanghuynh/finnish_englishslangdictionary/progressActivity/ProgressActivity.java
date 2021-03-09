@@ -34,7 +34,6 @@ public class ProgressActivity extends AppCompatActivity implements BookmarkedWor
 
         TextView totalPointDisplay = findViewById(R.id.totalPointAnnouncement);
         totalPointDisplay.setText(Long.toString(userProgress));
-        //Log.d("user progress", Long.toString(userProgress));
 
         bookmarkedWordList = AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().loadBookmarkedWords();
 
@@ -45,7 +44,7 @@ public class ProgressActivity extends AppCompatActivity implements BookmarkedWor
         final BookmarkedWordListAdapter adapter = new BookmarkedWordListAdapter(this, this::selectedWord);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setWords((List<Word>) bookmarkedWordList);
+        adapter.setWords(bookmarkedWordList);
 
         context = this.getApplicationContext();
 

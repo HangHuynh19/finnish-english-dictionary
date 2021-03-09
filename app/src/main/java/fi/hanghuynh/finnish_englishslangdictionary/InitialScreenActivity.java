@@ -34,7 +34,6 @@ public class InitialScreenActivity extends AppCompatActivity {
     Set a 3 second delay when the initial screen is loaded, before the next
     activity is run
      */
-
     @Override
     protected void onResume() {
         super.onResume();

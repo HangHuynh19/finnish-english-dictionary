@@ -85,8 +85,8 @@ public class SearchResultsActivity extends AppCompatActivity {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 converterView = inflater.inflate(layout, parent, false);
                 ViewHolder viewHolder = new ViewHolder();
-                viewHolder.result = (TextView) converterView.findViewById(R.id.searchedWordTxt);
-                viewHolder.bookmark = (ImageButton) converterView.findViewById(R.id.bookmarkBtn);
+                viewHolder.result = converterView.findViewById(R.id.searchedWordTxt);
+                viewHolder.bookmark = converterView.findViewById(R.id.bookmarkBtn);
                 converterView.setTag(viewHolder);
             }
 

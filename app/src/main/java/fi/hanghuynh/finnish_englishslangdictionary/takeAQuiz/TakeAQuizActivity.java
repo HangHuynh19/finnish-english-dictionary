@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-
 
 import fi.hanghuynh.finnish_englishslangdictionary.R;
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
@@ -43,9 +41,7 @@ public class TakeAQuizActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         finnishWord = AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().loadFinnishWordArray();
-        //Log.d("finnish array", Integer.toString(finnishWord.size()));
         englishTranslation = AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().loadEnglishTranslationArray();
-        //Log.d("english array", Integer.toString(englishTranslation.size()));
 
         quiz = new TakeAQuizUI(finnishWord, englishTranslation);
         quizInfo = quiz.generateQuiz();
@@ -78,7 +74,6 @@ public class TakeAQuizActivity extends AppCompatActivity {
                 userScore = checkUserAnswer(quizInfo);
                 prefGet = getSharedPreferences(SHARED_PREF_FILE, MODE_PRIVATE);
                 long userProgress = prefGet.getLong(USER_PROGRESS, 0) + userScore;
-                Log.d("user progress", Long.toString(userProgress));
 
                 prefPut = getSharedPreferences(SHARED_PREF_FILE, MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefPut.edit();
@@ -97,7 +92,6 @@ public class TakeAQuizActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         countDownTimer.cancel();
-        Log.d("count down", "stop");
     }
 
     @Override
@@ -165,7 +159,6 @@ public class TakeAQuizActivity extends AppCompatActivity {
         public void onClick(View view) {
             if (view.getId() == R.id.nextBtn) {
                 userScore = checkUserAnswer(quizInfo);
-                Log.d("score", Integer.toString(userScore));
                 quiz = new TakeAQuizUI(finnishWord, englishTranslation);
                 quizInfo = quiz.generateQuiz();
                 displayQuestionsAndOptions(quizInfo);
