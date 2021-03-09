@@ -3,14 +3,21 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import fi.hanghuynh.finnish_englishslangdictionary.db.AppDatabase;
+import fi.hanghuynh.finnish_englishslangdictionary.db.Word;
 import fi.hanghuynh.finnish_englishslangdictionary.progressActivity.ProgressActivity;
 import fi.hanghuynh.finnish_englishslangdictionary.searchActivity.SearchActivity;
 import fi.hanghuynh.finnish_englishslangdictionary.takeAQuiz.TakeAQuizActivity;
@@ -20,11 +27,11 @@ import fi.hanghuynh.finnish_englishslangdictionary.wordOfTheDayFeature.AlarmsetA
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "DICTIONARY";
-    //protected static final String SHARED_PREF_FILE = "my_pref";
-    //private static final String WORD_OF_THE_DAY_EXECUTION_TIME= "execution_time";
-    //private static final String WORD_OF_THE_DAY= "word_of_the_day";
-    //private SharedPreferences prefGet;
-    //private SharedPreferences prefPut;
+    protected static final String SHARED_PREF_FILE = "my_pref";
+    private static final String WORD_OF_THE_DAY_EXECUTION_TIME= "execution_time";
+    private static final String WORD_OF_THE_DAY= "word_of_the_day";
+    private SharedPreferences prefGet;
+    private SharedPreferences prefPut;
 
     // Create the onClickListener for 3 buttons: Search, Take A Quiz and Check Progress and Bookmarks
     // After the user clicks the the button, it will lead them to the assigned Activity
@@ -53,27 +60,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-        //alarm service
-
-     /*   //alarm service
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Calendar cal = Calendar.getInstance();
-        // alert message time
-        cal.add(Calendar.SECOND, 10);
-        //broadcast the message when the time is up
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);*/
-
-        getSupportActionBar().hide();
-
         Button btnSearch = findViewById(R.id.searchBtn);
         Button btnTakeQuiz = findViewById(R.id.quizBtn);
         Button btnShowProgress = findViewById(R.id.progressBtn);
         Button btnMatch = findViewById(R.id.matchBtn);
-        //wordOfTheDayTv = findViewById(R.id.wordOfTheDay);
+        TextView wordOfTheDayTv = findViewById(R.id.wordOfTheDay);
         Button wordBtn = findViewById(R.id.settingBtn);
 
 
@@ -85,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
         //AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().deleteAll();
         saveWordToDictionary();
-        //changeWordOfTheDay();
+        changeWordOfTheDay();
     }
 
-    /*protected void onResume() {
+    protected void onResume() {
         super.onResume();
         changeWordOfTheDay();
     }
@@ -96,12 +87,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         changeWordOfTheDay();
-    }*/
-
-    /*private void startWordOfTheDay() {
-        Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
-        startActivity(intent);
-    }*/
+    }
 
     /** Load data to the database if the database is null **/
     private void saveWordToDictionary() {
@@ -113,10 +99,9 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         }
-    }
 
-    /* Generate a new word-of-the-day
-     * @param previousWordOfTheDay String
+    /** Generate a new word-of-the-day
+     * @param previousWordOfTheDay String */
     private void generateWordOfTheDay(String previousWordOfTheDay) {
         List<Word> allWords = AppDatabase.getDbInstance(this.getApplicationContext()).wordDAO().getAllWords();
         Word wordOfTheDay = allWords.get((int)(Math.random() * (allWords.size())));
@@ -129,10 +114,10 @@ public class MainActivity extends AppCompatActivity {
             editor.putString(WORD_OF_THE_DAY, previousWordOfTheDay);
             editor.apply();
         }
-    }  */
+    }
 
-    /* Check if 1 day has passed or not. If yes, change the content of the word-of-the-day text view */
-    /* private void changeWordOfTheDay() {
+    /** Check if 1 day has passed or not. If yes, change the content of the word-of-the-day text view */
+     private void changeWordOfTheDay() {
         TextView wordOfTheDayTv = findViewById(R.id.wordOfTheDay);
 
         prefGet = getSharedPreferences(SHARED_PREF_FILE, MODE_PRIVATE);
@@ -148,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         long currentDateInMillis = calendar.getTimeInMillis();
         Log.d("current time", Long.toString(currentDateInMillis));
         Log.d("time different", Long.toString(currentDateInMillis - executionTimeInMillis));
-        if((currentDateInMillis - executionTimeInMillis) > 100000) {
+        if((currentDateInMillis - executionTimeInMillis) > 86400000) {
             generateWordOfTheDay(previousWordOfTheDay);
             prefPut = getSharedPreferences("my_pref", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefPut.edit();
@@ -158,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
         wordOfTheDayTv.setText("WORD OF THE DAY\n" + previousWordOfTheDay);
     }
-    }*/
+}
 
 
 
