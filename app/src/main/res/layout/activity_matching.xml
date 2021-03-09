@@ -7,6 +7,66 @@
     tools:context=".MatchingActivity"
     android:background="#1F2933">
 
+    <TextView
+        android:id="@+id/gamesPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/played"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.001"
+        app:layout_constraintHorizontal_bias="0.01"/>
+
+    <TextView
+        android:id="@+id/gamesWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/won"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.01"/>
+
+    <TextView
+        android:id="@+id/gamesPlayedScore"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@id/gamesPlayed"
+        app:layout_constraintTop_toTopOf="@id/gamesPlayed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        tools:layout_editor_absoluteX="37dp" />
+
+    <TextView
+        android:id="@+id/gamesWonScore"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toBottomOf="@id/gamesWon"
+        app:layout_constraintTop_toTopOf="@id/gamesWon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        tools:layout_editor_absoluteX="37dp" />
+
     <ImageView
         android:id="@+id/finnishCardMR"
         android:layout_width="0dp"
@@ -253,6 +313,30 @@
         android:contentDescription="@string/heart" />
 
     <ImageView
+        android:id="@+id/heart6"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/full_heart_icon"
+        android:contentDescription="@string/heart" />
+
+    <ImageView
+        android:id="@+id/heart7"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/full_heart_icon"
+        android:contentDescription="@string/heart" />
+
+    <ImageView
         android:id="@+id/heartEmpty"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -427,6 +511,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="@string/reset_button"
+        android:textColor="#000000"
+        android:backgroundTint="#FF991F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

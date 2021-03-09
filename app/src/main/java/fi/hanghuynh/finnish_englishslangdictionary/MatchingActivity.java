@@ -30,10 +30,13 @@ public class MatchingActivity extends AppCompatActivity {
     private ArrayList<String> finnWords, engWords, engWordsShuffled;
     private ArrayList<ImageView> finnCards, engCards, lives;
     private ArrayList<TextView> finnText, engText;
+    private TextView played, won;
     private Boolean noCardsClick, firstCardEnglish, firstCardFinnish;
     private int finnWordsIndex, engWordsIndex, engWordsShuffledIndex;
     private int totalPairs, totalLives, gameWon, gamePlayed;
     private Button btnReset;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     protected static final String SHARED = "matching";
     protected static final String TOT_GAMES = "total games played", TOT_GAMES_WON = "total games won";
     Random random = new Random();
@@ -56,6 +59,17 @@ public class MatchingActivity extends AppCompatActivity {
         engWordsShuffled = new ArrayList<>(engWords);
         Collections.shuffle(engWordsShuffled);
         loadGameView();
+
+        sharedPreferences = getSharedPreferences(SHARED, Activity.MODE_PRIVATE);
+
+        int totalGames = sharedPreferences.getInt(TOT_GAMES, 0);
+        int totalGamesWon = sharedPreferences.getInt(TOT_GAMES_WON,0);
+
+        played = findViewById(R.id.gamesPlayedScore);
+        won = findViewById(R.id.gamesWonScore);
+
+        played.setText(Integer.toString(totalGames));
+        won.setText(Integer.toString(totalGamesWon));
 
         //Log.d("words", "finnishWords: " + finnWords);
         //Log.d("words", "engWords: " + engWords);
@@ -282,7 +296,7 @@ public class MatchingActivity extends AppCompatActivity {
      */
     public void loadGameView() {
         totalPairs = 6;
-        totalLives = 5;
+        totalLives = 7;
 
         //Assigning all textViews into an array
         finnText = new ArrayList<>();
@@ -332,6 +346,8 @@ public class MatchingActivity extends AppCompatActivity {
         lives.add(findViewById(R.id.heart3));
         lives.add(findViewById(R.id.heart4));
         lives.add(findViewById(R.id.heart5));
+        lives.add(findViewById(R.id.heart6));
+        lives.add(findViewById(R.id.heart7));
 
         for (int i = 0; i < 6; i++) {
             finnCards.get(i).setOnClickListener(this::onClick);
@@ -410,7 +426,7 @@ public class MatchingActivity extends AppCompatActivity {
                         finnText.get(finnWordsIndex).setVisibility(View.INVISIBLE);
                         engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
                     }
-                }, 2000 );
+                }, 1500 );
     }
 
     /*
@@ -438,13 +454,14 @@ public class MatchingActivity extends AppCompatActivity {
                         engText.get(engWordsShuffledIndex).setVisibility(View.INVISIBLE);
 
                     }
-                }, 2000);
+                }, 1500);
     }
 
     /*
     Called when totalLives == 0, reveals resetButton
      */
     public void endGameLoss() {
+        Toast.makeText(MatchingActivity.this, "Sorry You Lose", Toast.LENGTH_SHORT).show();
         for (int i = 0; i < 6; i++) {
             finnCards.get(i).setOnClickListener(null);
             engCards.get(i).setOnClickListener(null);
@@ -461,6 +478,7 @@ public class MatchingActivity extends AppCompatActivity {
     Called when totalPairs == 0, reveals resetButton
      */
     public void endGameWin() {
+        Toast.makeText(MatchingActivity.this, "Congrats You Win", Toast.LENGTH_SHORT).show();
         Button btnReset = findViewById(R.id.resetBtn);
         btnReset.setOnClickListener(onClickListener);
         btnReset.setVisibility(View.VISIBLE);
@@ -502,20 +520,22 @@ public class MatchingActivity extends AppCompatActivity {
     During resetGame() the hearts in the top right will be refreshed
      */
     public void resetLives() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 7; i++) {
             lives.get(i).setImageResource(R.drawable.full_heart_icon);
         }
     }
 
     public void updateTotalGames() {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED, Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor = sharedPreferences.edit();
         int totalGames = sharedPreferences.getInt(TOT_GAMES, 0) + gamePlayed;
         int totalGamesWon = sharedPreferences.getInt(TOT_GAMES_WON,0) + gameWon;
 
         editor.putInt(TOT_GAMES, totalGames);
         editor.putInt(TOT_GAMES_WON, totalGamesWon);
         editor.apply();
+
+        played.setText(Integer.toString(totalGames));
+        won.setText(Integer.toString(totalGamesWon));
 
     }
 }
