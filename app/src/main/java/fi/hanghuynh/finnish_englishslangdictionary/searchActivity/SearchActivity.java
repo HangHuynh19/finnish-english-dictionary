@@ -58,7 +58,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         if (v.getId() == R.id.backBtn) {
             startActivity(new Intent(SearchActivity.this, MainActivity.class));
         } else if (v.getId() == R.id.searchBtn) {
-            searchedWord = searchBar.getText().toString();
+            searchedWord = searchBar.getText().toString().trim().toLowerCase();
             search();
 
             Intent searchResults = new Intent(SearchActivity.this, SearchResultsActivity.class);
