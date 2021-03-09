@@ -440,6 +440,8 @@ public class MatchingActivity extends AppCompatActivity {
         /*
         Timer to delay when cards disappear. Code in run() will start once the
         delay timer finishes
+        reference https://developer.android.com/reference/java/util/Timer
+        Timer.schedule(TimerTask task, Date time)
          */
         new Timer().schedule(
                 new TimerTask() {
