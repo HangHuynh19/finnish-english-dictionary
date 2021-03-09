@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import fi.hanghuynh.finnish_englishslangdictionary.MainActivity;
+import fi.hanghuynh.finnish_englishslangdictionary.R;
+
 public class InitialScreenActivity extends AppCompatActivity {
 
     private final Handler handler = new Handler();
@@ -16,18 +19,22 @@ public class InitialScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_initial_screen);
         getSupportActionBar().hide();
     }
+
     /*
     Switches to MainActivity, finish() ensures you can't revisit this activity
      */
+
     private final Runnable runnable = () -> {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
     };
 
+
     /*
     Set a 3 second delay when the initial screen is loaded, before the next
     activity is run
      */
+
     @Override
     protected void onResume() {
         super.onResume();

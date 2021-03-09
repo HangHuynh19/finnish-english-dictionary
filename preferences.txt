@@ -1,0 +1,5 @@
+https://developer.android.com/codelabs/android-training-livedata-viewmodel/#3
+https://developer.android.com/codelabs/android-training-room-delete-data#2
+https://github.com/google-developer-training/android-advanced/blob/master/RoomWordsWithDelete/app/src/main/res/layout/recyclerview_item.xml
+https://www.tutorialspoint.com/java/util/calendar_gettime.htm
+https://www.iitk.ac.in/esc101/05Aug/tutorial/essential/threads/timer.html

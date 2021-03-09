@@ -20,12 +20,12 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBtn"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.444" />
 
     <Button
         android:id="@+id/searchBtn"
@@ -80,9 +80,22 @@
         android:textColor="#000000"
         app:backgroundTint="#FF991F"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/matchBtn" />
 
-
-
+    <Button
+        android:id="@+id/settingBtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="5sp"
+        android:text="@string/setting_btn"
+        android:textColor="#000000"
+        app:backgroundTint="#FF991F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBtn"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
