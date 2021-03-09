@@ -60,9 +60,8 @@ public class TakeAQuizActivity extends AppCompatActivity {
         // Implement timer to count down from 1 minute
         // Preference: https://www.youtube.com/watch?v=T_wSEnqGPdo
         // https://developer.android.com/reference/java/util/Timer#schedule(java.util.TimerTask,%20java.util.Date)
-        //long duration = TimeUnit.MINUTES.toMillis(1);
 
-        long duration = TimeUnit.MILLISECONDS.toMillis(60000);
+        long duration = TimeUnit.MINUTES.toMillis(1);
 
         countDownTimer = new CountDownTimer(duration, 1000) {
             @Override
@@ -107,14 +106,12 @@ public class TakeAQuizActivity extends AppCompatActivity {
         if(countDownTimer != null) {
             countDownTimer.cancel();
         }
-        Log.d("count down", "stop");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         countDownTimer.cancel();
-        Log.d("count down", "stop");
     }
 
     @Override

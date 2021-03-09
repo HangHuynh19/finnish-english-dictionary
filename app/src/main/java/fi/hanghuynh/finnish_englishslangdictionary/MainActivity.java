@@ -60,22 +60,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-        //alarm service
-
-     /*   //alarm service
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Calendar cal = Calendar.getInstance();
-        // alert message time
-        cal.add(Calendar.SECOND, 10);
-        //broadcast the message when the time is up
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);*/
-
-        getSupportActionBar().hide();
-
         Button btnSearch = findViewById(R.id.searchBtn);
         Button btnTakeQuiz = findViewById(R.id.quizBtn);
         Button btnShowProgress = findViewById(R.id.progressBtn);
@@ -104,11 +88,6 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         changeWordOfTheDay();
     }
-
-    /*private void startWordOfTheDay() {
-        Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
-        startActivity(intent);
-    }*/
 
     /** Load data to the database if the database is null **/
     private void saveWordToDictionary() {
